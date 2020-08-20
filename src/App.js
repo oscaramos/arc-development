@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import LandingPage from './components/LandingPage/LandingPage'
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path='/' component={() => <div style={{ height: "50em" }}>Home</div>} />
+          <Route exact path='/' component={LandingPage} />
           <Route path='/services' component={() => <div>Services</div>} />
           <Route path='/customsoftware' component={() => <div>Custom software</div>} />
           <Route path='/mobileapps' component={() => <div>Mobile apps</div>} />
