@@ -203,7 +203,7 @@ const Header = () => {
     </>
   )
 
-  const [openDrawer, setOpenDrawer] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const [drawerIndex, setDrawerIndex] = useState(0);
 
   const drawerItems = [
