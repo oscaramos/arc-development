@@ -54,6 +54,18 @@ const useStyles = makeStyles(theme => ({
     marginRight: 12,
     color: 'white',
     height: 45
+  },
+  menuPaper: {
+    backgroundColor: theme.palette.common.arcBlue,
+    color: 'white',
+    borderRadius: 0
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    '&:hover': {
+      opacity: 1
+    }
   }
 }))
 
@@ -69,6 +81,8 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = useState(false);
 
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen(true)
@@ -83,12 +97,34 @@ const Header = () => {
     setValue(newValue);
   };
 
+  const handleMenuItemClick = (e, i) => {
+    setAnchorEl(null)
+    setOpen(false)
+    setSelectedIndex(i)
+  }
+
+  const menuOptions = [
+    { name: "Services", link: "/services" },
+    { name: "Custom Software Development", link: "/customsoftware" },
+    { name: "Mobile App Development", link: "/mobileapps" },
+    { name: "Website Development", link: "/websites" },
+  ]
+
   useEffect(() => {
     if (location.pathname === '/') setValue(0)
     if (location.pathname === '/services') setValue(1)
+    if (location.pathname === '/customsoftware') setValue(1)
+    if (location.pathname === '/mobileapps') setValue(1)
+    if (location.pathname === '/websites') setValue(1)
     if (location.pathname === '/revolution') setValue(2)
     if (location.pathname === '/about') setValue(3)
     if (location.pathname === '/contact') setValue(4)
+
+    if (location.pathname === '/services') setSelectedIndex(0)
+    if (location.pathname === '/customsoftware') setSelectedIndex(1)
+    if (location.pathname === '/mobileapps') setSelectedIndex(2)
+    if (location.pathname === '/websites') setSelectedIndex(3)
+
   }, [location.pathname])
 
   return (
@@ -114,7 +150,7 @@ const Header = () => {
               <Tab
                 aria-owns={anchorEl? 'simple-menu': undefined}
                 aria-haspopup={anchorEl? 'true': undefined}
-                onClick={handleClick}
+                onMouseOver={handleClick}
                 className={classes.tab} component={Link} to="/services" label="Services"
               />
               <Tab className={classes.tab} component={Link} to="/revolution" label="The Revolution" />
@@ -128,10 +164,22 @@ const Header = () => {
             <Menu
               id='simple-menu' anchorEl={anchorEl} open={open}
               onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
+              classes={{paper: classes.menuPaper}} elevation={0}
             >
-              <MenuItem onClick={handleClose} component={Link} to='/customsoftware'>Custom Software Development</MenuItem>
-              <MenuItem onClick={handleClose} component={Link} to='/mobileapps' >Mobile App Development</MenuItem>
-              <MenuItem onClick={handleClose} component={Link} to='/websites'>Website Development</MenuItem>
+              {
+                menuOptions.map((menuOption, index) =>
+                  <MenuItem
+                    key={index}
+                    className={classes.menuItem}
+                    onClick={e => handleMenuItemClick(e, index)}
+                    component={Link}
+                    to={menuOption.link}
+                    selected={index === selectedIndex}
+                  >
+                    {menuOption.name}
+                  </MenuItem>
+                )
+              }
             </Menu>
           </Toolbar>
         </AppBar>
