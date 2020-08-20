@@ -7,11 +7,12 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import logo from '../../assets/logo.svg'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import { useMediaQuery } from '@material-ui/core'
 
 function ElevationScroll(props) {
   const { children } = props
@@ -28,10 +29,22 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: '3em'
+    marginBottom: '3em',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '2em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: '1.25em',
+    }
   },
   logo: {
-    height: '8em'
+    height: '8em',
+    [theme.breakpoints.down('md')]: {
+      height: '7em',
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '5.5em',
+    }
   },
   logoContainer: {
     padding: 0,
@@ -83,6 +96,9 @@ const Header = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const theme = useTheme()
+  const matchMD = useMediaQuery(theme.breakpoints.down('md'))
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen(true)
@@ -124,8 +140,32 @@ const Header = () => {
     if (location.pathname === '/customsoftware') setSelectedIndex(1)
     if (location.pathname === '/mobileapps') setSelectedIndex(2)
     if (location.pathname === '/websites') setSelectedIndex(3)
-
   }, [location.pathname])
+
+  const tabs = (
+    <>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        className={classes.tabContainer}
+        indicatorColor="primary"
+      >
+        <Tab className={classes.tab} component={Link} to="/" label="Home" />
+        <Tab
+          aria-owns={anchorEl? 'simple-menu': undefined}
+          aria-haspopup={anchorEl? 'true': undefined}
+          onMouseOver={handleClick}
+          className={classes.tab} component={Link} to="/services" label="Services"
+        />
+        <Tab className={classes.tab} component={Link} to="/revolution" label="The Revolution" />
+        <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
+        <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
+      </Tabs>
+      <Button variant="contained" color="secondary" className={classes.button}>
+        Free Estimate
+      </Button>
+    </>
+  )
 
   return (
     <>
@@ -140,27 +180,12 @@ const Header = () => {
             >
               <img alt='company logo' src={logo} className={classes.logo} />
             </Button>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              className={classes.tabContainer}
-              indicatorColor="primary"
-            >
-              <Tab className={classes.tab} component={Link} to="/" label="Home" />
-              <Tab
-                aria-owns={anchorEl? 'simple-menu': undefined}
-                aria-haspopup={anchorEl? 'true': undefined}
-                onMouseOver={handleClick}
-                className={classes.tab} component={Link} to="/services" label="Services"
-              />
-              <Tab className={classes.tab} component={Link} to="/revolution" label="The Revolution" />
-              <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
-              <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
-            </Tabs>
 
-            <Button variant="contained" color="secondary" className={classes.button}>
-              Free Estimate
-            </Button>
+            {
+              matchMD
+                ? null
+                : tabs
+            }
             <Menu
               id='simple-menu' anchorEl={anchorEl} open={open}
               onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
