@@ -152,10 +152,10 @@ const Header = () => {
   }
 
   const menuOptions = [
-    { name: "Services", link: "/services" },
-    { name: "Custom Software Development", link: "/customsoftware" },
-    { name: "Mobile App Development", link: "/mobileapps" },
-    { name: "Website Development", link: "/websites" },
+    { link: "/services", name: "Services", activeIndex: 0},
+    { link: "/customsoftware", name: "Custom Software Development", activeIndex: 1},
+    { link: "/mobileapps", name: "Mobile App Development", activeIndex: 2},
+    { link: "/websites", name: "Website Development", activeIndex: 3},
   ]
 
   useEffect(() => {
@@ -168,11 +168,10 @@ const Header = () => {
     if (location.pathname === '/about') setValue(3)
     if (location.pathname === '/contact') setValue(4)
 
-    if (location.pathname === '/services') setSelectedIndex(0)
-    if (location.pathname === '/customsoftware') setSelectedIndex(1)
-    if (location.pathname === '/mobileapps') setSelectedIndex(2)
-    if (location.pathname === '/websites') setSelectedIndex(3)
-  }, [location.pathname])
+    menuOptions.forEach(menuOption => {
+      if (location.pathname === menuOption.link) setSelectedIndex(menuOption.activeIndex)
+    })
+  }, [location.pathname, menuOptions])
 
   const tabs = (
     <>
@@ -199,7 +198,6 @@ const Header = () => {
     </>
   )
 
-
   const [openDrawer, setOpenDrawer] = useState(true);
   const [drawerIndex, setDrawerIndex] = useState(0);
 
@@ -217,7 +215,7 @@ const Header = () => {
     drawerItems.forEach(drawerItem => {
       if (location.pathname === drawerItem.link) setDrawerIndex(drawerItem.activeIndex)
     })
-  }, [location.pathname])
+  }, [location.pathname, drawerItems])
 
   const drawer = (
     <>
@@ -231,6 +229,7 @@ const Header = () => {
           {
             drawerItems.map((drawerItem, index) => (
               <ListItem
+                key={index}
                 className={drawerItem.className}
                 divider button onClick={() => setOpenDrawer(false)}
                 component={Link} to={drawerItem.link}
@@ -277,6 +276,7 @@ const Header = () => {
               id='simple-menu' anchorEl={anchorEl} open={open}
               onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
               classes={{paper: classes.menuPaper}} elevation={0}
+              keepMounted
             >
               {
                 menuOptions.map((menuOption, index) =>
