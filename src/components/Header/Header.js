@@ -3,16 +3,23 @@ import { Link, useLocation } from 'react-router-dom'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Button from '@material-ui/core/Button'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-
-import logo from '../../assets/logo.svg'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import IconButton from '@material-ui/core/IconButton'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import { useMediaQuery } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+
+import MenuIcon from '@material-ui/icons/Menu';
+import logo from '../../assets/logo.svg'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+
 
 function ElevationScroll(props) {
   const { children } = props
@@ -79,6 +86,31 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       opacity: 1
     }
+  },
+  drawerIconContainer: {
+    marginLeft: 'auto',
+    '&:hover': {
+      backgroundColor: 'transparent'
+    }
+  },
+  drawerIcon: {
+    height: 50,
+    width: 50
+  },
+  drawerPaper: {
+    backgroundColor: theme.palette.common.arcBlue
+  },
+  drawerItem: {
+    ...theme.typography.tab,
+    color: 'white',
+    opacity: 0.7
+  },
+  drawerItemEstimate: {
+    backgroundColor: theme.palette.common.arcOrange,
+    opacity: 1
+  },
+  drawerItemSelected: {
+    opacity: 1
   }
 }))
 
@@ -167,6 +199,60 @@ const Header = () => {
     </>
   )
 
+
+  const [openDrawer, setOpenDrawer] = useState(true);
+  const [drawerIndex, setDrawerIndex] = useState(0);
+
+  const drawerItems = [
+    { link: '/', name: 'Home', activeIndex: 0},
+    { link: '/services', name: 'Services', activeIndex: 1},
+    { link: '/revolution', name: 'The revolution', activeIndex: 2},
+    { link: '/about', name: 'About us', activeIndex: 3},
+    { link: '/contact', name: 'Contact us', activeIndex: 4},
+    { link: '/estimate', name: 'Free estimate', activeIndex: 5,
+      className: [classes.drawerItem, classes.drawerItemEstimate]},
+  ]
+
+  useEffect(() => {
+    drawerItems.forEach(drawerItem => {
+      if (location.pathname === drawerItem.link) setDrawerIndex(drawerItem.activeIndex)
+    })
+  }, [location.pathname])
+
+  const drawer = (
+    <>
+      <SwipeableDrawer
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+        classes={{ paper: classes.drawerPaper }}
+      >
+        <List disablePadding>
+          {
+            drawerItems.map((drawerItem, index) => (
+              <ListItem
+                className={drawerItem.className}
+                divider button onClick={() => setOpenDrawer(false)}
+                component={Link} to={drawerItem.link}
+                selected={drawerIndex === index}
+              >
+                <ListItemText
+                  disableTypography
+                  className={drawerIndex === index? [classes.drawerItem, classes.drawerItemSelected]: classes.drawerItem}
+                >
+                  {drawerItem.name}
+                </ListItemText>
+              </ListItem>
+            ))
+          }
+        </List>
+      </SwipeableDrawer>
+      <IconButton className={classes.drawerIconContainer}>
+        <MenuIcon onClick={() => setOpenDrawer(true)} className={classes.drawerIcon} />
+      </IconButton>
+    </>
+  )
+
   return (
     <>
       <ElevationScroll>
@@ -183,9 +269,10 @@ const Header = () => {
 
             {
               matchMD
-                ? null
+                ? drawer
                 : tabs
             }
+
             <Menu
               id='simple-menu' anchorEl={anchorEl} open={open}
               onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
