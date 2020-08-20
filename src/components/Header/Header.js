@@ -106,11 +106,16 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.7
   },
   drawerItemEstimate: {
+    ...theme.typography.tab,
     backgroundColor: theme.palette.common.arcOrange,
+    color: 'white',
     opacity: 1
   },
   drawerItemSelected: {
     opacity: 1
+  },
+  appbar: {
+    zIndex: theme.zIndex.modal + 1
   }
 }))
 
@@ -208,7 +213,7 @@ const Header = () => {
     { link: '/about', name: 'About us', activeIndex: 3},
     { link: '/contact', name: 'Contact us', activeIndex: 4},
     { link: '/estimate', name: 'Free estimate', activeIndex: 5,
-      className: [classes.drawerItem, classes.drawerItemEstimate]},
+      className: classes.drawerItemEstimate},
   ]
 
   useEffect(() => {
@@ -225,6 +230,7 @@ const Header = () => {
         onOpen={() => setOpenDrawer(true)}
         classes={{ paper: classes.drawerPaper }}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
           {
             drawerItems.map((drawerItem, index) => (
@@ -234,10 +240,11 @@ const Header = () => {
                 divider button onClick={() => setOpenDrawer(false)}
                 component={Link} to={drawerItem.link}
                 selected={drawerIndex === index}
+                classes={{ selected: classes.drawerItemSelected }}
               >
                 <ListItemText
                   disableTypography
-                  className={drawerIndex === index? [classes.drawerItem, classes.drawerItemSelected]: classes.drawerItem}
+                  className={classes.drawerItem}
                 >
                   {drawerItem.name}
                 </ListItemText>
@@ -246,8 +253,8 @@ const Header = () => {
           }
         </List>
       </SwipeableDrawer>
-      <IconButton className={classes.drawerIconContainer}>
-        <MenuIcon onClick={() => setOpenDrawer(true)} className={classes.drawerIcon} />
+      <IconButton className={classes.drawerIconContainer} onClick={() => setOpenDrawer(true)}>
+        <MenuIcon className={classes.drawerIcon} />
       </IconButton>
     </>
   )
@@ -255,7 +262,7 @@ const Header = () => {
   return (
     <>
       <ElevationScroll>
-        <AppBar color='primary'>
+        <AppBar color='primary' className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               component={Link}
@@ -276,6 +283,7 @@ const Header = () => {
               id='simple-menu' anchorEl={anchorEl} open={open}
               onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
               classes={{paper: classes.menuPaper}} elevation={0}
+              style={{ zIndex: 1302 }}
               keepMounted
             >
               {
