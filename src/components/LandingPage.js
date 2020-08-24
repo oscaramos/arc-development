@@ -14,9 +14,8 @@ import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
 import mobileAppsIcon from '../assets/mobileIcon.svg'
 import websitesIcon from '../assets/websiteIcon.svg'
-import revolutionBackground from '../assets/repeatingBackground.svg';
-import informationBackground from '../assets/infoBackground.svg';
-
+import revolutionBackground from '../assets/repeatingBackground.svg'
+import informationBackground from '../assets/infoBackground.svg'
 
 
 const useStyles = makeStyles(theme => ({
@@ -93,21 +92,21 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   revolutionCard: {
     position: 'absolute',
     boxShadow: theme.shadows[10],
     borderRadius: 15,
     padding: '10em',
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       paddingTop: '8em',
       paddingBottom: '8em',
       paddingLeft: 0,
       paddingRight: 0,
       borderRadius: 0,
-      width: '100%'
-    }
+      width: '100%',
+    },
   },
   informationBackground: {
     backgroundImage: `url(${informationBackground})`,
@@ -117,8 +116,8 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    zIndex: '-1'
-  }
+    zIndex: '-1',
+  },
 }))
 
 const LandingPage = () => {
@@ -286,10 +285,10 @@ const LandingPage = () => {
 
       {/*----- Information Block -----*/}
       <Grid item>
-        <Grid container direction={ matchesXS? 'column': 'row' } alignItems='center' style={{ height: '50em' }}>
-          <Grid item xs style={{ paddingLeft: matchesXS? 0: '5em' }}>
+        <Grid container direction={matchesXS ? 'column' : 'row'} alignItems='center' style={{ height: '50em' }}>
+          <Grid item xs style={{ paddingLeft: matchesXS ? 0 : '5em' }}>
             <Grid container direction='column'
-                  alignItems={matchesXS? 'center': 'flex-start'} justify={matchesXS? 'flex-end': undefined}
+                  alignItems={matchesXS ? 'center' : 'flex-start'} justify={matchesXS ? 'flex-end' : undefined}
                   style={{ height: '100%' }}
             >
               <Grid item>
@@ -305,14 +304,14 @@ const LandingPage = () => {
               <Grid item>
                 <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
                   <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
-                  <ButtonArrow width={10} height={10} fill="white" />
+                  <ButtonArrow width={10} height={10} fill='white' />
                 </Button>
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid item xs style={{ paddingRight: matchesXS? 0: '5em', marginTop: matchesXS? '4em': 0 }}>
-            <Grid container direction='column' alignItems={matchesXS? 'center': 'flex-end'}>
+          <Grid item xs style={{ paddingRight: matchesXS ? 0 : '5em', marginTop: matchesXS ? '4em' : 0 }}>
+            <Grid container direction='column' alignItems={matchesXS ? 'center' : 'flex-end'}>
               <Grid item>
                 <Typography variant='h4' style={{ color: 'white' }}>
                   Contact Us
@@ -326,7 +325,7 @@ const LandingPage = () => {
               <Grid item>
                 <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
                   <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
-                  <ButtonArrow width={10} height={10} fill="white" />
+                  <ButtonArrow width={10} height={10} fill='white' />
                 </Button>
               </Grid>
             </Grid>
