@@ -83,7 +83,7 @@ const Footer = () => {
                 Custom Software Development
               </Grid>
               <Grid item component={Link} to='/mobileapps' className={classes.link}>
-                Mobile App Development
+                iOS/App Development
               </Grid>
               <Grid item component={Link} to='/websites' className={classes.link}>
                 Website Development
