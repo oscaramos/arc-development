@@ -4,14 +4,18 @@ import Lottie from 'react-lottie'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import ButtonArrow from './ButtonArrow';
+import ButtonArrow from './ButtonArrow'
 import animationData from '../animations/landinganimation/data'
-import customSoftwareIcon from '../assets/Custom Software Icon.svg';
-import mobileAppsIcon from '../assets/mobileIcon.svg';
-import websitesIcon from '../assets/websiteIcon.svg';
+import customSoftwareIcon from '../assets/Custom Software Icon.svg'
+import mobileAppsIcon from '../assets/mobileIcon.svg'
+import websitesIcon from '../assets/websiteIcon.svg'
+import revolutionBackground from '../assets/repeatingBackground.svg';
+
 
 
 
@@ -20,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '50em',
     minWidth: '20em',
     marginTop: '2em',
-    marginLeft: '10%'
+    marginLeft: '10%',
   },
   estimateButton: {
     ...theme.typography.estimate,
@@ -30,58 +34,72 @@ const useStyles = makeStyles(theme => ({
     width: 145,
     marginRight: 40,
     '&:hover': {
-      backgroundColor: theme.palette.secondary.light
-    }
+      backgroundColor: theme.palette.secondary.light,
+    },
   },
   learnButtonHero: {
     ...theme.typography.learnButton,
     fontSize: '0.9rem',
     height: 45,
-    width: 145
+    width: 145,
   },
   learnButton: {
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
-    padding: 5
+    padding: 5,
   },
   mainContainer: {
     marginTop: '5em',
-    [theme.breakpoints.down("md")]: {
-      marginTop: '3em'
+    [theme.breakpoints.down('md')]: {
+      marginTop: '3em',
     },
-    [theme.breakpoints.down("xs")]: {
-      marginTop: '2em'
-    }
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '2em',
+    },
   },
   heroTextContainer: {
     minWidth: '21.5em',
     marginLeft: '1em',
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: 0
-    }
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
+    },
   },
   specialText: {
     fontFamily: 'Pacifico',
-    color: theme.palette.common.arcOrange
+    color: theme.palette.common.arcOrange,
   },
   subtitle: {
-    marginBottom: '1em'
+    marginBottom: '1em',
   },
   icon: {
     marginLeft: '2em',
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: 0
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
     },
-    [theme.breakpoints.down("sm")]: {
-      marginTop: '2em'
-    }
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '2em',
+    },
   },
   servicesContainer: {
     marginTop: '12em',
-    [theme.breakpoints.down("sm")]: {
-      padding: 25
-    }
+    [theme.breakpoints.down('sm')]: {
+      padding: 25,
+    },
+  },
+  revolutionBackground: {
+    backgroundImage: `url(${revolutionBackground})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%'
+  },
+  revolutionCard: {
+    position: 'absolute',
+    boxShadow: theme.shadows[10],
+    borderRadius: 15,
+    padding: 10
   }
 }))
 
@@ -137,10 +155,10 @@ const LandingPage = () => {
       <Grid
         container direction='row'
         className={classes.servicesContainer}
-        justify={matchesSM? 'center': undefined}
-        style={{ textAlign: matchesSM? 'center': undefined }}
+        justify={matchesSM ? 'center' : undefined}
+        style={{ textAlign: matchesSM ? 'center' : undefined }}
       >
-        <Grid item style={{  marginLeft: matchesSM? 0 : '5em' }}>
+        <Grid item style={{ marginLeft: matchesSM ? 0 : '5em' }}>
           <Typography variant='h4'>
             Custom Software Development
           </Typography>
@@ -163,8 +181,8 @@ const LandingPage = () => {
       <Grid
         container direction='row'
         className={classes.servicesContainer}
-        justify={matchesSM? 'center': 'flex-end'}
-        style={{ textAlign: matchesSM? 'center': undefined }}
+        justify={matchesSM ? 'center' : 'flex-end'}
+        style={{ textAlign: matchesSM ? 'center' : undefined }}
       >
         <Grid item>
           <Typography variant='h4'>
@@ -175,14 +193,14 @@ const LandingPage = () => {
           </Typography>
           <Typography variant='subtitle1'>
             Integrate your web experience or create a standalone
-            {matchesSM? null: <br />} with either mobile platform.
+            {matchesSM ? null : <br />} with either mobile platform.
           </Typography>
           <Button variant='outlined' className={classes.learnButton}>
             <span style={{ marginRight: 10 }}>Learn More</span>
             <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
           </Button>
         </Grid>
-        <Grid item style={{marginRight: matchesSM? 0 : '5em'}}>
+        <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
           <img className={classes.icon} alt='mobile apps icon' src={mobileAppsIcon} />
         </Grid>
       </Grid>
@@ -191,10 +209,10 @@ const LandingPage = () => {
       <Grid
         container direction='row'
         className={classes.servicesContainer}
-        justify={matchesSM? 'center': undefined}
-        style={{ textAlign: matchesSM? 'center': undefined }}
+        justify={matchesSM ? 'center' : undefined}
+        style={{ textAlign: matchesSM ? 'center' : undefined }}
       >
-        <Grid item style={{  marginLeft: matchesSM? 0 : '5em' }}>
+        <Grid item style={{ marginLeft: matchesSM ? 0 : '5em' }}>
           <Typography variant='h4'>
             Website Development
           </Typography>
@@ -214,6 +232,37 @@ const LandingPage = () => {
         </Grid>
       </Grid>
 
+      <Grid item>
+        <Grid container alignItems='center' justify='center' style={{ height: '100em' }}>
+          <Card className={classes.revolutionCard}>
+            <CardContent>
+              <Grid container direction='column' alignItems='center'>
+
+                <Grid item>
+                  <Typography variant='h3'>
+                    The Revolution
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Typography variant='subtitle1'>
+                    Visionary insights coupled with cutting-edge
+                    technology is a recipe for a revolution
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Button variant='outlined' className={classes.learnButton}>
+                    <span style={{ marginRight: 10 }}>Learn More</span>
+                    <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
+                  </Button>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+          <div className={classes.revolutionBackground} />
+        </Grid>
+      </Grid>
     </Grid>
   )
 }
