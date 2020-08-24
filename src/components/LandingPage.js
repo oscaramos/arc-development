@@ -15,7 +15,7 @@ import customSoftwareIcon from '../assets/Custom Software Icon.svg'
 import mobileAppsIcon from '../assets/mobileIcon.svg'
 import websitesIcon from '../assets/websiteIcon.svg'
 import revolutionBackground from '../assets/repeatingBackground.svg';
-
+import informationBackground from '../assets/infoBackground.svg';
 
 
 
@@ -108,6 +108,16 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
       width: '100%'
     }
+  },
+  informationBackground: {
+    backgroundImage: `url(${informationBackground})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    zIndex: '-1'
   }
 }))
 
@@ -116,6 +126,7 @@ const LandingPage = () => {
 
   const theme = useTheme()
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
 
   const defaultOptions = {
     loop: false,
@@ -240,6 +251,7 @@ const LandingPage = () => {
         </Grid>
       </Grid>
 
+      {/*----- Revolution Card -----*/}
       <Grid item>
         <Grid container alignItems='center' justify='center' style={{ height: '100em', marginTop: '10em' }}>
           <Card className={classes.revolutionCard}>
@@ -269,6 +281,57 @@ const LandingPage = () => {
             </CardContent>
           </Card>
           <div className={classes.revolutionBackground} />
+        </Grid>
+      </Grid>
+
+      {/*----- Information Block -----*/}
+      <Grid item>
+        <Grid container direction={ matchesXS? 'column': 'row' } alignItems='center' style={{ height: '50em' }}>
+          <Grid item xs style={{ paddingLeft: matchesXS? 0: '5em' }}>
+            <Grid container direction='column'
+                  alignItems={matchesXS? 'center': 'flex-start'} justify={matchesXS? 'flex-end': undefined}
+                  style={{ height: '100%' }}
+            >
+              <Grid item>
+                <Typography variant='h4' style={{ color: 'white' }}>
+                  About Us
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant='subtitle2'>
+                  Let's get personal
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
+                  <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
+                  <ButtonArrow width={10} height={10} fill="white" />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item xs style={{ paddingRight: matchesXS? 0: '5em', marginTop: matchesXS? '4em': 0 }}>
+            <Grid container direction='column' alignItems={matchesXS? 'center': 'flex-end'}>
+              <Grid item>
+                <Typography variant='h4' style={{ color: 'white' }}>
+                  Contact Us
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant='subtitle2'>
+                  Say Hello!
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
+                  <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
+                  <ButtonArrow width={10} height={10} fill="white" />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <div className={classes.informationBackground} />
         </Grid>
       </Grid>
     </Grid>
