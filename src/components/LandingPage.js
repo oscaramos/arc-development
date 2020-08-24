@@ -4,12 +4,13 @@ import Lottie from 'react-lottie'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import ButtonArrow from './ButtonArrow';
 import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
-import { useMediaQuery } from '@material-ui/core'
+import mobileAppsIcon from '../assets/mobileIcon.svg';
 
 
 const useStyles = makeStyles(theme => ({
@@ -129,13 +130,14 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      {/*----- Services Block------ */}
+      {/*----- Custom Software Block ------ */}
       <Grid
         container direction='row'
-        className={classes.servicesContainer} justify={matchesSM? 'center': undefined}
+        className={classes.servicesContainer}
+        justify={matchesSM? 'center': undefined}
         style={{ textAlign: matchesSM? 'center': undefined }}
       >
-        <Grid item style={{ marginLeft: matchesSM? 0 : '5em' }}>
+        <Grid item style={{  marginLeft: matchesSM? 0 : '5em' }}>
           <Typography variant='h4'>
             Custom Software Development
           </Typography>
@@ -152,6 +154,33 @@ const LandingPage = () => {
         </Grid>
         <Grid item>
           <img className={classes.icon} alt='custom software icon' src={customSoftwareIcon} />
+        </Grid>
+      </Grid>
+      {/*----- iOS/Android block ------ */}
+      <Grid
+        container direction='row'
+        className={classes.servicesContainer}
+        justify={matchesSM? 'center': 'flex-end'}
+        style={{ textAlign: matchesSM? 'center': undefined }}
+      >
+        <Grid item>
+          <Typography variant='h4'>
+            iOS/Android App Development
+          </Typography>
+          <Typography variant='subtitle1' className={classes.subtitle}>
+            Extend Functionality. Extend Access. Increase Engagement.
+          </Typography>
+          <Typography variant='subtitle1'>
+            Integrate your web experience or create a standalone
+            {matchesSM? null: <br />} with either mobile platform.
+          </Typography>
+          <Button variant='outlined' className={classes.learnButton}>
+            <span style={{ marginRight: 10 }}>Learn More</span>
+            <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
+          </Button>
+        </Grid>
+        <Grid item style={{marginRight: matchesSM? 0 : '5em'}}>
+          <img className={classes.icon} alt='custom software icon' src={mobileAppsIcon} />
         </Grid>
       </Grid>
     </Grid>
