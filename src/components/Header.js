@@ -15,7 +15,7 @@ import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from '../../assets/logo.svg'
+import logo from '../assets/logo.svg'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -161,7 +161,7 @@ const Header = () => {
   const menuOptions = [
     { link: "/services", name: "Services", activeIndex: 0},
     { link: "/customsoftware", name: "Custom Software Development", activeIndex: 1},
-    { link: "/mobileapps", name: "Mobile App Development", activeIndex: 2},
+    { link: "/mobileapps", name: "iOS/Android App Development", activeIndex: 2},
     { link: "/websites", name: "Website Development", activeIndex: 3},
   ]
 

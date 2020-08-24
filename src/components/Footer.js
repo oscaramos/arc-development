@@ -5,10 +5,10 @@ import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
 
-import facebook from '../../assets/facebook.svg'
-import twitter from '../../assets/twitter.svg'
-import instagram from '../../assets/instagram.svg'
-import footerAdornment from '../../assets/Footer Adornment.svg'
+import facebook from '../assets/facebook.svg'
+import twitter from '../assets/twitter.svg'
+import instagram from '../assets/instagram.svg'
+import footerAdornment from '../assets/Footer Adornment.svg'
 
 
 const useStyles = makeStyles(theme => ({

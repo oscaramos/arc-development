@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import ButtonArrow from '../ButtonArrow';
-import animationData from '../../animations/landinganimation/data'
-import customSoftwareIcon from '../../assets/Custom Software Icon.svg';
+import ButtonArrow from './ButtonArrow';
+import animationData from '../animations/landinganimation/data'
+import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import { useMediaQuery } from '@material-ui/core'
 
 
