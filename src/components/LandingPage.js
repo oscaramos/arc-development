@@ -11,6 +11,8 @@ import ButtonArrow from './ButtonArrow';
 import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
+import websitesIcon from '../assets/websiteIcon.svg';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -130,6 +132,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Grid>
+
       {/*----- Custom Software Block ------ */}
       <Grid
         container direction='row'
@@ -180,9 +183,37 @@ const LandingPage = () => {
           </Button>
         </Grid>
         <Grid item style={{marginRight: matchesSM? 0 : '5em'}}>
-          <img className={classes.icon} alt='custom software icon' src={mobileAppsIcon} />
+          <img className={classes.icon} alt='mobile apps icon' src={mobileAppsIcon} />
         </Grid>
       </Grid>
+
+      {/*----- Custom Software Block ------ */}
+      <Grid
+        container direction='row'
+        className={classes.servicesContainer}
+        justify={matchesSM? 'center': undefined}
+        style={{ textAlign: matchesSM? 'center': undefined }}
+      >
+        <Grid item style={{  marginLeft: matchesSM? 0 : '5em' }}>
+          <Typography variant='h4'>
+            Website Development
+          </Typography>
+          <Typography variant='subtitle1' className={classes.subtitle}>
+            React More. Discover More. Sell More.
+          </Typography>
+          <Typography variant='subtitle1'>
+            Optimized for Search Engines, built for speed.
+          </Typography>
+          <Button variant='outlined' className={classes.learnButton}>
+            <span style={{ marginRight: 10 }}>Learn More</span>
+            <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
+          </Button>
+        </Grid>
+        <Grid item>
+          <img className={classes.icon} alt='websites icon' src={websitesIcon} />
+        </Grid>
+      </Grid>
+
     </Grid>
   )
 }
