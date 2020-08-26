@@ -9,8 +9,7 @@ import CardContent from '@material-ui/core/CardContent'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import CallToAction from './CallToAction';
-import ButtonArrow from './ButtonArrow'
+import CallToAction from './CallToAction'
 
 import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
@@ -18,6 +17,7 @@ import mobileAppsIcon from '../assets/mobileIcon.svg'
 import websitesIcon from '../assets/websiteIcon.svg'
 import revolutionBackground from '../assets/repeatingBackground.svg'
 import informationBackground from '../assets/infoBackground.svg'
+import LearnMoreButton from './LearnMoreButton'
 
 
 const useStyles = makeStyles(theme => ({
@@ -157,10 +157,11 @@ const LandingPage = () => {
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant='contained' className={classes.learnButtonHero}>
-                  <span style={{ marginRight: 10 }}>Learn More</span>
-                  <ButtonArrow width={15} height={15} fill={theme.palette.common.arcBlue} />
-                </Button>
+                <LearnMoreButton
+                  variant='contained'
+                  color={theme.palette.common.arcBlue}
+                  className={classes.learnButtonHero}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -188,10 +189,10 @@ const LandingPage = () => {
           <Typography variant='subtitle1'>
             Complete digital solutions, from investigation to <span className={classes.specialText}>celebration</span>
           </Typography>
-          <Button variant='outlined' className={classes.learnButton}>
-            <span style={{ marginRight: 10 }}>Learn More</span>
-            <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
-          </Button>
+          <LearnMoreButton
+            className={classes.learnButton}
+            color={theme.palette.common.arcBlue}
+          />
         </Grid>
         <Grid item>
           <img className={classes.icon} alt='custom software icon' src={customSoftwareIcon} />
@@ -216,10 +217,10 @@ const LandingPage = () => {
             Integrate your web experience or create a standalone
             {matchesSM ? null : <br />} with either mobile platform.
           </Typography>
-          <Button variant='outlined' className={classes.learnButton}>
-            <span style={{ marginRight: 10 }}>Learn More</span>
-            <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
-          </Button>
+          <LearnMoreButton
+            className={classes.learnButton}
+            color={theme.palette.common.arcBlue}
+          />
         </Grid>
         <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
           <img className={classes.icon} alt='mobile apps icon' src={mobileAppsIcon} />
@@ -243,10 +244,10 @@ const LandingPage = () => {
           <Typography variant='subtitle1'>
             Optimized for Search Engines, built for speed.
           </Typography>
-          <Button variant='outlined' className={classes.learnButton}>
-            <span style={{ marginRight: 10 }}>Learn More</span>
-            <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
-          </Button>
+          <LearnMoreButton
+            className={classes.learnButton}
+            color={theme.palette.common.arcBlue}
+          />
         </Grid>
         <Grid item>
           <img className={classes.icon} alt='websites icon' src={websitesIcon} />
@@ -273,10 +274,10 @@ const LandingPage = () => {
                 </Grid>
 
                 <Grid item>
-                  <Button variant='outlined' className={classes.learnButton}>
-                    <span style={{ marginRight: 10 }}>Learn More</span>
-                    <ButtonArrow width={10} height={10} fill={theme.palette.common.arcBlue} />
-                  </Button>
+                  <LearnMoreButton
+                    className={classes.learnButton}
+                    color={theme.palette.common.arcBlue}
+                  />
                 </Grid>
               </Grid>
             </CardContent>
@@ -304,10 +305,10 @@ const LandingPage = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
-                  <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
-                  <ButtonArrow width={10} height={10} fill='white' />
-                </Button>
+                <LearnMoreButton
+                  className={classes.learnButton}
+                  color='white'
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -325,10 +326,10 @@ const LandingPage = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Button variant='outlined' className={classes.learnButton} style={{ borderColor: 'white' }}>
-                  <span style={{ marginRight: 10, color: 'white' }}>Learn More</span>
-                  <ButtonArrow width={10} height={10} fill='white' />
-                </Button>
+                <LearnMoreButton
+                  className={classes.learnButton}
+                  color='white'
+                />
               </Grid>
             </Grid>
           </Grid>
