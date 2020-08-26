@@ -9,7 +9,9 @@ import CardContent from '@material-ui/core/CardContent'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
+import CallToAction from './CallToAction';
 import ButtonArrow from './ButtonArrow'
+
 import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
 import mobileAppsIcon from '../assets/mobileIcon.svg'
@@ -137,7 +139,7 @@ const LandingPage = () => {
   }
 
   return (
-    <Grid container direction='column' className={classes.mainContainer} spacing={4}>
+    <Grid container direction='column' className={classes.mainContainer}>
       {/*---- Hero Block -----*/}
       <Grid item>
         <Grid container direction='row' alignItems='center' justify='flex-end'>
@@ -195,6 +197,7 @@ const LandingPage = () => {
           <img className={classes.icon} alt='custom software icon' src={customSoftwareIcon} />
         </Grid>
       </Grid>
+
       {/*----- iOS/Android block ------ */}
       <Grid
         container direction='row'
@@ -256,7 +259,6 @@ const LandingPage = () => {
           <Card className={classes.revolutionCard}>
             <CardContent>
               <Grid container direction='column' alignItems='center'>
-
                 <Grid item>
                   <Typography variant='h3' gutterBottom>
                     The Revolution
@@ -285,7 +287,7 @@ const LandingPage = () => {
 
       {/*----- Information Block -----*/}
       <Grid item>
-        <Grid container direction={matchesXS ? 'column' : 'row'} alignItems='center' style={{ height: '50em' }}>
+        <Grid container direction={matchesXS ? 'column' : 'row'} alignItems='center' style={{ height: '50em', position: 'relative' }}>
           <Grid item xs style={{ paddingLeft: matchesXS ? 0 : '5em' }}>
             <Grid container direction='column'
                   alignItems={matchesXS ? 'center' : 'flex-start'} justify={matchesXS ? 'flex-end' : undefined}
@@ -332,6 +334,10 @@ const LandingPage = () => {
           </Grid>
           <div className={classes.informationBackground} />
         </Grid>
+      </Grid>
+      <Grid item>
+        {/*----- Call To Action Block -----*/}
+        <CallToAction />
       </Grid>
     </Grid>
   )
