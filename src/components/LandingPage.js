@@ -224,7 +224,7 @@ const LandingPage = () => {
         </Grid>
       </Grid>
 
-      {/*----- Custom Software Block ------ */}
+      {/*----- Websites Block ------ */}
       <Grid
         container direction='row'
         className={classes.servicesContainer}
