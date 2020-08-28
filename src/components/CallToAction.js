@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
@@ -10,6 +9,7 @@ import LearnMoreButton from './LearnMoreButton'
 
 import background from '../assets/background.jpg';
 import mobileBackground from '../assets/mobileBackground.jpg'
+import FreeEstimateButton from './FreeEstimateButton'
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,11 +35,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   estimateButton: {
-    ...theme.typography.estimate,
-    borderRadius: 50,
-    height: 80,
-    width: 205,
-    backgroundColor: theme.palette.common.arcOrange,
     fontSize: '1.5rem'
   }
 }))
@@ -77,9 +72,7 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item style={{ marginRight: matchesSM? 0: '5em' }}>
-        <Button component={Link} to='/estimate' variant='contained' className={classes.estimateButton}>
-          Free Estimate
-        </Button>
+        <FreeEstimateButton className={classes.estimateButton} />
       </Grid>
       <div className={classes.background} />
     </Grid>

@@ -19,6 +19,7 @@ import logo from '../assets/logo.svg'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import FreeEstimateButton from './FreeEstimateButton'
 
 
 function ElevationScroll(props) {
@@ -67,15 +68,11 @@ const useStyles = makeStyles(theme => ({
     minWidth: 10,
     marginLeft: 25
   },
-  button: {
-    ...theme.typography.estimate,
-    borderRadius: "50px",
+  freeEstimateButton: {
     marginLeft: 15,
     marginRight: 12,
     height: 45,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.light
-    }
+    width: 190
   },
   menuPaper: {
     backgroundColor: theme.palette.common.arcBlue,
@@ -200,9 +197,7 @@ const Header = () => {
         <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
         <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
       </Tabs>
-      <Button component={Link} to='/estimate' variant="contained" color="secondary" className={classes.button}>
-        Free Estimate
-      </Button>
+      <FreeEstimateButton className={classes.freeEstimateButton} />
     </>
   )
 

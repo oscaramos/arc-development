@@ -19,6 +19,7 @@ import websitesIcon from '../assets/websiteIcon.svg'
 import revolutionBackground from '../assets/repeatingBackground.svg'
 import informationBackground from '../assets/infoBackground.svg'
 import LearnMoreButton from './LearnMoreButton'
+import FreeEstimateButton from './FreeEstimateButton'
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,15 +30,10 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '10%',
   },
   estimateButton: {
-    ...theme.typography.estimate,
-    backgroundColor: theme.palette.common.arcOrange,
     borderRadius: 50,
     height: 45,
     width: 145,
-    marginRight: 40,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.light,
-    },
+    marginRight: 40
   },
   learnButtonHero: {
     ...theme.typography.learnButton,
@@ -153,9 +149,7 @@ const LandingPage = () => {
 
             <Grid container justify='center' style={{ marginTop: '1em' }}>
               <Grid item>
-                <Button component={Link} to='/estimate' className={classes.estimateButton} variant='contained'>
-                  Free Estimate
-                </Button>
+                <FreeEstimateButton className={classes.estimateButton} />
               </Grid>
               <Grid item>
                 <LearnMoreButton
