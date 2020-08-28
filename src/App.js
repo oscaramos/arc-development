@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LandingPage from './components/LandingPage'
+import Services from './components/Services'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <Route path='/services' component={() => <div>Services</div>} />
+          <Route path='/services' component={Services} />
           <Route path='/customsoftware' component={() => <div>Custom software</div>} />
           <Route path='/mobileapps' component={() => <div>Mobile apps</div>} />
           <Route path='/revolution' component={() => <div>Revolution</div>} />
