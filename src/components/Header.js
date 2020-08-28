@@ -174,6 +174,7 @@ const Header = () => {
     if (location.pathname === '/revolution') setValue(2)
     if (location.pathname === '/about') setValue(3)
     if (location.pathname === '/contact') setValue(4)
+    if (location.pathname === '/estimate') setValue(5)
 
     menuOptions.forEach(menuOption => {
       if (location.pathname === menuOption.link) setSelectedIndex(menuOption.activeIndex)
@@ -199,7 +200,7 @@ const Header = () => {
         <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
         <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
       </Tabs>
-      <Button variant="contained" color="secondary" className={classes.button}>
+      <Button component={Link} to='/estimate' variant="contained" color="secondary" className={classes.button}>
         Free Estimate
       </Button>
     </>

@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
@@ -7,7 +10,6 @@ import LearnMoreButton from './LearnMoreButton'
 
 import background from '../assets/background.jpg';
 import mobileBackground from '../assets/mobileBackground.jpg'
-import Button from '@material-ui/core/Button'
 
 
 const useStyles = makeStyles(theme => ({
@@ -69,12 +71,13 @@ const CallToAction = () => {
             <LearnMoreButton
               color={theme.palette.common.arcBlue}
               className={classes.learnButton}
+              component={Link} to='/services'
             />
           </Grid>
         </Grid>
       </Grid>
       <Grid item style={{ marginRight: matchesSM? 0: '5em' }}>
-        <Button variant='contained' className={classes.estimateButton}>
+        <Button component={Link} to='/estimate' variant='contained' className={classes.estimateButton}>
           Free Estimate
         </Button>
       </Grid>

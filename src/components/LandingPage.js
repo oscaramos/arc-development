@@ -1,5 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
+import { Link } from 'react-router-dom'
 
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -152,7 +153,7 @@ const LandingPage = () => {
 
             <Grid container justify='center' style={{ marginTop: '1em' }}>
               <Grid item>
-                <Button className={classes.estimateButton} variant='contained'>
+                <Button component={Link} to='/estimate' className={classes.estimateButton} variant='contained'>
                   Free Estimate
                 </Button>
               </Grid>
@@ -192,6 +193,7 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
+            component={Link} to='/customsoftware'
           />
         </Grid>
         <Grid item>
@@ -220,6 +222,7 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
+            component={Link} to='/mobileapps'
           />
         </Grid>
         <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
@@ -247,6 +250,7 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
+            component={Link} to='/customsoftware'
           />
         </Grid>
         <Grid item>
@@ -277,6 +281,7 @@ const LandingPage = () => {
                   <LearnMoreButton
                     className={classes.learnButton}
                     color={theme.palette.common.arcBlue}
+                    component={Link} to='/revolution'
                   />
                 </Grid>
               </Grid>
@@ -308,6 +313,7 @@ const LandingPage = () => {
                 <LearnMoreButton
                   className={classes.learnButton}
                   color='white'
+                  component={Link} to='/about'
                 />
               </Grid>
             </Grid>
@@ -329,6 +335,7 @@ const LandingPage = () => {
                 <LearnMoreButton
                   className={classes.learnButton}
                   color='white'
+                  component={Link} to='/contact'
                 />
               </Grid>
             </Grid>
