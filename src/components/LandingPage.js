@@ -3,7 +3,6 @@ import Lottie from 'react-lottie'
 import { Link } from 'react-router-dom'
 
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -33,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 50,
     height: 45,
     width: 145,
-    marginRight: 40
+    marginRight: 40,
   },
   learnButtonHero: {
     ...theme.typography.learnButton,
@@ -287,7 +286,8 @@ const LandingPage = () => {
 
       {/*----- Information Block -----*/}
       <Grid item>
-        <Grid container direction={matchesXS ? 'column' : 'row'} alignItems='center' style={{ height: '50em', position: 'relative' }}>
+        <Grid container direction={matchesXS ? 'column' : 'row'} alignItems='center'
+              style={{ height: '50em', position: 'relative' }}>
           <Grid item xs style={{ paddingLeft: matchesXS ? 0 : '5em' }}>
             <Grid container direction='column'
                   alignItems={matchesXS ? 'center' : 'flex-start'} justify={matchesXS ? 'flex-end' : undefined}
