@@ -52,9 +52,12 @@ const CallToAction = () => {
       direction={matchesSM? 'column': 'row'}
       alignItems={matchesSM? 'center': 'center'}
       justify={matchesSM? 'center': 'space-between'}
-      spacing={matchesSM? 4: 0}
     >
-      <Grid item style={{ marginLeft: matchesSM? 0: '5em', textAlign: matchesSM? 'center': undefined }}>
+      <Grid item style={{
+        marginLeft: matchesSM? 0: '5em',
+        textAlign: matchesSM? 'center': undefined,
+        marginBottom: matchesSM? "2em": 0
+      }}>
         <Grid container direction='column'>
           <Grid item>
             <Typography variant='h2'>
