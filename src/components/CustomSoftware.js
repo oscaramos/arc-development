@@ -4,8 +4,9 @@ import Lottie from 'react-lottie'
 
 import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
-import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
+import Hidden from '@material-ui/core/Hidden'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { Typography, useMediaQuery } from '@material-ui/core'
 
 import backArrow from '../assets/backArrow.svg'
 import forwardArrow from '../assets/forwardArrow.svg'
@@ -20,7 +21,7 @@ import automationAnimation from '../animations/automationAnimation/data'
 import uxAnimation from '../animations/uxAnimation/data'
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   heading: {
     maxWidth: '40em',
   },
@@ -29,11 +30,14 @@ const useStyles = makeStyles({
   },
   mainContainer: {
     padding: '2em 5em 10em 5em',
+    [theme.breakpoints.down("sm")]: {
+      padding: '1em 2em 4em 2em',
+    }
   },
   itemContainer: {
-    maxWidth: '40em',
+    maxWidth: '40em'
   },
-})
+}))
 
 
 function CustomSoftware() {
@@ -75,16 +79,26 @@ function CustomSoftware() {
     },
   }
 
+  const theme = useTheme()
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+
   return (
     <Grid container direction='column' className={classes.mainContainer}>
       {/*----- Custom Software Development -----*/}
-      <Grid item container direction='row'>
+      <Grid
+        item container
+        direction={matchesSM? 'column': 'row'}
+        alignItems={matchesSM? 'center': undefined}
+      >
         <Grid item className={classes.arrowContainer} style={{ marginRight: '1rem', marginLeft: '-3.5rem' }}>
-          <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/services'>
-            <img src={backArrow} alt='Back to Services Page' />
-          </IconButton>
+          <Hidden mdDown>
+            <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/services'>
+              <img src={backArrow} alt='Back to Services Page' />
+            </IconButton>
+          </Hidden>
         </Grid>
-        <Grid item container direction='column' className={classes.heading}>
+        <Grid item container direction='column' className={classes.heading} style={{ textAlign: matchesMD? 'center': undefined }}>
           <Grid item>
             <Typography variant='h2'>
               Custom Software Development
@@ -120,15 +134,23 @@ function CustomSoftware() {
           </Grid>
         </Grid>
         <Grid item className={classes.arrowContainer}>
-          <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/mobileapps'>
-            <img src={forwardArrow} alt='Forward to iOS/Android App Development' />
-          </IconButton>
+          <Hidden mdDown>
+            <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/mobileapps'>
+              <img src={forwardArrow} alt='Forward to iOS/Android App Development' />
+            </IconButton>
+          </Hidden>
         </Grid>
       </Grid>
 
       {/*----- Save Energy, Save Time and Save Money -----*/}
-      <Grid item container direction='row' justify='center' style={{ marginTop: '15em', marginBottom: '20em' }}>
-        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em' }}>
+      <Grid
+        item container
+        direction={matchesSM? 'column': 'row'}
+        justify={matchesSM? undefined: 'center'}
+        alignItems={matchesSM? 'center': undefined}
+        style={{ marginTop: '15em', marginBottom: '20em' }}
+      >
+        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em', marginBottom: matchesSM? '10em': 0  }}>
           <Grid item>
             <Typography variant='h4'>
               Save Energy
@@ -138,7 +160,7 @@ function CustomSoftware() {
             <img src={lightbulb} alt='lightbulb' />
           </Grid>
         </Grid>
-        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em' }}>
+        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em', marginBottom: matchesSM? '10em': 0}}>
           <Grid item>
             <Typography variant='h4'>
               Save Time
@@ -148,7 +170,7 @@ function CustomSoftware() {
             <img src={stopwatch} alt='stopwatch' />
           </Grid>
         </Grid>
-        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em' }}>
+        <Grid item container md direction='column' alignItems='center' style={{ maxWidth: '40em', marginBottom: matchesSM? '10em': 0}}>
           <Grid item>
             <Typography variant='h4'>
               Save Money
@@ -161,8 +183,20 @@ function CustomSoftware() {
       </Grid>
 
       {/*----- Documents & Data and Scale -----*/}
-      <Grid item container direction='row' justify='space-between'>
-        <Grid item container md direction='row' className={classes.itemContainer}>
+      <Grid
+        item container
+        direction={matchesMD? 'column': 'row'}
+        justify={matchesMD? undefined: 'space-between'}
+        alignItems={matchesMD? 'center': undefined}
+      >
+        <Grid
+          item container
+          md
+          direction={matchesMD? 'column': 'row'}
+          alignItems={matchesMD? 'center': undefined}
+          className={classes.itemContainer}
+          style={{ marginBottom: '15em', textAlign: matchesMD? 'center': undefined}}
+        >
           <Grid item container md direction='column'>
             <Grid item>
               <Typography variant='h4'>
@@ -189,19 +223,27 @@ function CustomSoftware() {
             <Lottie options={documentsOptions} />
           </Grid>
         </Grid>
-        <Grid item container md direction='row' className={classes.itemContainer}>
+
+        <Grid
+          item container
+          md
+          direction={matchesMD? 'column': 'row'}
+          alignItems={matchesMD? 'center': undefined}
+          className={classes.itemContainer}
+          style={{ textAlign: matchesMD? 'center': 'right'}}
+        >
           <Grid item md style={{ maxHeight: 260, maxWidth: 280 }}>
             <Lottie options={scaleOptions} />
           </Grid>
 
           <Grid item container md direction='column'>
             <Grid item>
-              <Typography variant='h4' align='right'>
+              <Typography variant='h4'>
                 Scale
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant='body1' paragraph align='right'>
+              <Typography variant='body1' paragraph>
                 Whether you’re a large brand, just getting started, or
                 taking off right now, our application architecture
                 ensures pain-free growth and reliability.
@@ -212,11 +254,19 @@ function CustomSoftware() {
       </Grid>
 
       {/*----- Root-Cause Analysis -----*/}
-      <Grid item container direction='column' alignItems='center'
-            style={{ marginTop: '20em', marginBottom: '20em'}}
+      <Grid
+        item container
+        direction='column'
+        alignItems='center'
+        style={{ marginTop: '20em', marginBottom: '20em'}}
       >
         <Grid item>
-          <img src={roots} alt='three with roots extending out' height='450em' width='450em' />
+          <img
+            src={roots}
+            alt='three with roots extending out'
+            height={matchesSM? '200em': '450em'}
+            width={matchesSM? '200em': '450em'}
+          />
         </Grid>
         <Grid item container direction='column' className={classes.itemContainer}>
           <Grid item>
@@ -239,8 +289,20 @@ function CustomSoftware() {
       </Grid>
 
       {/*----- Automation and User Experience Design -----*/}
-      <Grid item container direction='row' justify='space-between'>
-        <Grid item container md direction='row' className={classes.itemContainer}>
+      <Grid
+        item container
+        direction={matchesMD? 'column': 'row'}
+        justify={matchesMD? undefined: 'space-between'}
+        alignItems={matchesMD? 'center': undefined}
+      >
+        <Grid
+          item container
+          md
+          direction={matchesMD? 'column': 'row'}
+          alignItems={matchesMD? 'center': undefined}
+          className={classes.itemContainer}
+          style={{ marginBottom: '15em', textAlign: matchesMD? 'center': undefined}}
+        >
           <Grid item container md direction='column'>
             <Grid item>
               <Typography variant='h4'>
@@ -266,19 +328,27 @@ function CustomSoftware() {
             <Lottie options={automationOptions} />
           </Grid>
         </Grid>
-        <Grid item container md direction='row' className={classes.itemContainer}>
+
+        <Grid
+          item container
+          md
+          direction={matchesMD? 'column': 'row'}
+          alignItems={matchesMD? 'center': undefined}
+          className={classes.itemContainer}
+          style={{ textAlign: matchesMD? 'center': 'right'}}
+        >
           <Grid item md style={{ maxHeight: 310, maxWidth: 155 }}>
             <Lottie options={uxOptions} />
           </Grid>
 
           <Grid item container md direction='column'>
             <Grid item>
-              <Typography variant='h4' align='right'>
+              <Typography variant='h4'>
                 Scale
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant='body1' paragraph align='right'>
+              <Typography variant='body1' paragraph>
                 Whether you’re a large brand, just getting started, or
                 taking off right now, our application architecture
                 ensures pain-free growth and reliability.
