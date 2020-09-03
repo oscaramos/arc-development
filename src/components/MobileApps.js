@@ -102,7 +102,11 @@ function MobileApps() {
       </Grid>
 
       {/*----- Integration and Simultaneous Platform Support -----*/}
-      <Grid item container direction='row'>
+      <Grid
+        item container
+        direction={matchesMD? 'column': 'row'}
+        style={{ marginTop: '10em', textAlign: matchesMD? 'center': undefined }}
+      >
         <Grid item container md direction='column'>
           <Grid item>
             <Typography variant='h4' gutterBottom>
@@ -128,7 +132,7 @@ function MobileApps() {
           <Lottie options={mobileOptions} style={{ maxWidth: '20em' }} />
         </Grid>
 
-        <Grid item container md direction='column'>
+        <Grid item container md direction='column' style={{ textAlign: matchesMD? undefined: 'right' }}>
           <Grid item>
             <Typography variant='h4' gutterBottom>
               Simultaneous Platform Support
@@ -150,8 +154,12 @@ function MobileApps() {
       </Grid>
 
       {/*----- Extend Functionality, Access and Increase Engagement -----*/}
-      <Grid item container direction='row'>
-        <Grid item container md direction='column' alignItems='center'>
+      <Grid
+        item container
+        direction={matchesMD? 'column': 'row'}
+        style={{ marginTop: '15em', marginBottom: '15em' }}
+      >
+        <Grid item container md direction='column' alignItems='center' style={{ marginBottom: matchesMD? '8em': 0 }}>
           <Grid item>
             <Typography variant='h4' gutterBottom>
               Extend Functionality
@@ -162,18 +170,18 @@ function MobileApps() {
           </Grid>
         </Grid>
 
-        <Grid item container md direction='column' alignItems='center'>
+        <Grid item container md direction='column' alignItems='center' style={{ marginBottom: matchesMD? '8em': 0 }}>
           <Grid item>
             <Typography variant='h4' gutterBottom>
               Extend Access
             </Typography>
           </Grid>
           <Grid item>
-            <img src={access} alt='extend access' style={{ maxWidth: '28em' }} />
+            <img src={access} alt='extend access' style={{ maxWidth: matchesSM? '20em': '28em' }} />
           </Grid>
         </Grid>
 
-        <Grid item container md direction='column' alignItems='center'>
+        <Grid item container md direction='column' alignItems='center' style={{ marginBottom: matchesMD? '8em': 0 }}>
           <Grid item>
             <Typography variant='h4' gutterBottom>
               Increase Engagement
