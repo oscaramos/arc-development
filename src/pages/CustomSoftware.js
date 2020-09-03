@@ -16,11 +16,11 @@ import lightbulb from '../assets/bulb.svg'
 import roots from '../assets/root.svg'
 
 import documentsAnimation from '../animations/documentsAnimation/data'
-import scaleAnimation from '../animations/scaleAnimation/data'
-import automationAnimation from '../animations/automationAnimation/data'
+import scaleAnimation from '../animations/scaleAnimation/data.json'
+import automationAnimation from '../animations/automationAnimation/data.json'
 import uxAnimation from '../animations/uxAnimation/data'
 
-import CallToAction from './CallToAction'
+import CallToAction from '../components/CallToAction'
 
 
 const useStyles = makeStyles(theme => ({

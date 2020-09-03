@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { useMediaQuery } from '@material-ui/core'
 
-import LearnMoreButton from './LearnMoreButton'
+import LearnMoreButton from '../components/LearnMoreButton'
 
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
 import mobileAppsIcon from '../assets/mobileIcon.svg'

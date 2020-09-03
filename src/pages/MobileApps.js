@@ -8,15 +8,15 @@ import IconButton from '@material-ui/core/IconButton'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
-import integrationAnimation from '../animations/integrationAnimation/data'
+import CallToAction from '../components/CallToAction'
 
 import backArrow from '../assets/backArrow.svg'
 import forwardArrow from '../assets/forwardArrow.svg'
 import swiss from '../assets/swissKnife.svg'
 import access from '../assets/extendAccess.svg'
 import engagement from '../assets/increaseEngagement.svg'
-import CallToAction from './CallToAction'
 
+import integrationAnimation from '../animations/integrationAnimation/data.json'
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {

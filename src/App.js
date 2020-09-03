@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
-import LandingPage from './components/LandingPage'
-import Services from './components/Services'
-import CustomSoftware from './components/CustomSoftware'
-import MobileApps from './components/MobileApps'
+import Header from './pages/Header'
+import Footer from './pages/Footer'
+import LandingPage from './pages/LandingPage'
+import Services from './pages/Services'
+import CustomSoftware from './pages/CustomSoftware'
+import MobileApps from './pages/MobileApps'
 
 function App() {
   return (

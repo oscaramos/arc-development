@@ -10,16 +10,17 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import IconButton from '@material-ui/core/IconButton'
-import useScrollTrigger from '@material-ui/core/useScrollTrigger'
-import { useMediaQuery } from '@material-ui/core'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from '../assets/logo.svg'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import FreeEstimateButton from './FreeEstimateButton'
+import { useMediaQuery } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+
+import FreeEstimateButton from '../components/FreeEstimateButton'
+
+import logo from '../assets/logo.svg'
 
 
 function ElevationScroll(props) {
