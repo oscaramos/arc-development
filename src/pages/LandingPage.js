@@ -244,7 +244,7 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/customsoftware'
+            component={Link} to='/websites'
           />
         </Grid>
         <Grid item>
