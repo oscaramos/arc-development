@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import LandingPage from './components/LandingPage'
 import Services from './components/Services'
 import CustomSoftware from './components/CustomSoftware'
+import MobileApps from './components/MobileApps'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <Route exact path='/' component={LandingPage} />
           <Route path='/services' component={Services} />
           <Route path='/customsoftware' component={CustomSoftware} />
-          <Route path='/mobileapps' component={() => <div>Mobile apps</div>} />
+          <Route path='/mobileapps' component={MobileApps} />
+          <Route path='/websites' component={() => <div>Websites</div>} />
           <Route path='/revolution' component={() => <div>Revolution</div>} />
           <Route path='/about' component={() => <div>About</div>} />
           <Route path='/contact' component={() => <div>Contact</div>} />
