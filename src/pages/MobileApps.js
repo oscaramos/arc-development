@@ -63,8 +63,8 @@ function MobileApps() {
         >
           <Grid item className={classes.arrowContainer} style={{ marginRight: '1rem', marginLeft: '-3.5rem' }}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/services'>
-                <img src={backArrow} alt='Back to Services Page' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/customsoftware'>
+                <img src={backArrow} alt='Back to Custom Software Page' />
               </IconButton>
             </Hidden>
           </Grid>
