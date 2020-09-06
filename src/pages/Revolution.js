@@ -2,8 +2,12 @@ import React from 'react'
 import Lottie from 'react-lottie'
 
 import Grid from '@material-ui/core/Grid'
+import useTheme from '@material-ui/core/styles/useTheme'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+
+import CallToAction from '../components/CallToAction'
 
 import technologyAnimation from '../animations/technologyAnimation/data.json'
 
@@ -16,7 +20,6 @@ import build from '../assets/buildIcon.svg'
 import launch from '../assets/launchIcon.svg'
 import maintain from '../assets/maintainIcon.svg'
 import iterate from '../assets/iterateIcon.svg'
-import CallToAction from '../components/CallToAction'
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,27 +49,39 @@ function Revolution() {
     },
   }
 
+  const theme = useTheme()
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+
   return (
     <Grid container direction='column'>
       <Grid container direction='column' className={classes.rowContainer}>
         <Grid item>
-          <Typography variant='h2' style={{ fontFamily: 'Pacifico' }}>
+          <Typography variant='h2' align={matchesMD ? 'center' : undefined} style={{ fontFamily: 'Pacifico' }}>
             The revolution
           </Typography>
         </Grid>
 
         {/*------ Vision -----*/}
-        <Grid container direction='row' justify='center'>
+        <Grid container
+              direction={matchesMD ? 'column' : 'row'}
+              justify='center'
+              alignItems='center'
+              style={{ marginTop: '5em', marginBottom: '5em' }}
+        >
           <Grid item lg>
-            <img src={vision} alt='mountain through binoculars' width='500' height='500' />
+            <img
+              src={vision}
+              alt='mountain through binoculars'
+              style={{ width:'100%', maxWidth: '30em', height: 'auto' }}
+            />
           </Grid>
 
-          <Grid item lg>
+          <Grid item lg style={{ marginLeft: matchesMD ? 0 : '5em' }}>
             <Grid
               container
               direction='column'
               justify='flex-end'
-              style={{ textAlign: 'end', maxWidth: '40em', marginLeft: 'auto' }}
+              style={{ textAlign: matchesMD? 'center': 'end', maxWidth: '40em', marginLeft: 'auto' }}
             >
               <Grid item>
                 <Typography variant='h4' gutterBottom>
@@ -106,13 +121,19 @@ function Revolution() {
         </Grid>
 
         {/*------ Technology -----*/}
-        <Grid container direction='row' justify='center'>
+        <Grid
+          container
+          direction={matchesMD? 'column': 'row'}
+          justify='center'
+          alignItems='center'
+          style={{ marginBottom: '5em' }}
+        >
           <Grid item lg>
             <Grid
               container
               direction='column'
               justify='flex-end'
-              style={{ textAlign: 'start', maxWidth: '40em', marginRight: 'auto' }}
+              style={{ textAlign: matchesMD? 'center': 'start', maxWidth: '40em' }}
             >
               <Grid item>
                 <Typography variant='h4' gutterBottom>
@@ -170,15 +191,21 @@ function Revolution() {
       </Grid>
 
       {/*----- Consultation ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#B3B3B3' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#B3B3B3' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Consultation
               </Typography>
             </Grid>
@@ -202,20 +229,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={consultation} alt='handshakes' />
+          <img
+            src={consultation}
+            alt='handshakes'
+            style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Mockup ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#FF7373' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#FF7373' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Mockup
               </Typography>
             </Grid>
@@ -237,20 +274,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={mockup} alt='monitor' />
+          <img
+            src={mockup}
+            alt='monitor'
+            style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Review ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#39B54A' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#39B54A' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Review
               </Typography>
             </Grid>
@@ -272,20 +319,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={review} alt='magnifying glass' />
+          <img
+            src={review}
+            alt='magnifying glass'
+            style={{ width: '100%', maxWidth: '25em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Design ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#A67C52' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#A67C52' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Design
               </Typography>
             </Grid>
@@ -303,20 +360,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={design} alt='design' />
+          <img
+            src={design}
+            alt='design'
+            style={{ width: '100%', maxWidth: '40em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Build ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#FBB03B' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#FBB03B' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Build
               </Typography>
             </Grid>
@@ -348,20 +415,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={build} alt='build' />
+          <img
+            src={build}
+            alt='build'
+            style={{ width: '100%', maxWidth: '40em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Launch ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#C1272D' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#C1272D' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Launch
               </Typography>
             </Grid>
@@ -383,20 +460,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={launch} alt='launch' />
+          <img
+            src={launch}
+            alt='launch'
+            style={{ width: '100%', maxWidth: '10em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Maintain ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#8E45CE' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#8E45CE' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Maintain
               </Typography>
             </Grid>
@@ -418,20 +505,30 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={maintain} alt='maintain' />
+          <img
+            src={maintain}
+            alt='maintain'
+            style={{ width: '100%', maxWidth: '20em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
       {/*----- Iterate ------*/}
-      <Grid container direction='row' className={classes.rowContainer} style={{ backgroundColor: '#29ABE2' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        className={classes.rowContainer}
+        style={{ backgroundColor: '#29ABE2' }}
+      >
         <Grid item lg>
           <Grid
             container
             direction='column'
-            style={{ maxWidth: '40em' }}
+            alignItems={matchesMD? 'center': undefined}
+            style={{ textAlign: matchesMD? 'center': undefined }}
           >
             <Grid item>
-              <Typography variant='h4' gutterBottom style={{ color: 'black', maxWidth: '20em' }}>
+              <Typography variant='h4' gutterBottom style={{ color: 'black', marginTop: '2em' }}>
                 Iterate
               </Typography>
             </Grid>
@@ -442,7 +539,9 @@ function Revolution() {
               </Typography>
               <Typography variant='body1' paragraph style={{ color: 'white', maxWidth: '20em' }}>
                 By planning for future features and changes we can build and evolve your application over time.
-                As new use cases and customer needs develop we can respond with continuous integration of new content.              </Typography>
+                As new use cases and customer needs develop we can respond with continuous integration of new
+                content.
+              </Typography>
               <Typography variant='body1' paragraph style={{ color: 'white', maxWidth: '20em' }}>
                 Our iterative process will keep you current and competitive, allowing you to quickly implement changes
                 instead of waiting months for a single update.
@@ -451,7 +550,11 @@ function Revolution() {
           </Grid>
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
-          <img src={iterate} alt='iterate' />
+          <img
+            src={iterate}
+            alt='domino'
+            style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
+          />
         </Grid>
       </Grid>
 
