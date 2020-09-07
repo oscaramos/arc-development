@@ -34,6 +34,7 @@ function AboutUs() {
 
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+  const matchesLG = useMediaQuery(theme.breakpoints.down('lg'))
 
   return (
     <Grid container direction='column'>
@@ -53,9 +54,15 @@ function AboutUs() {
       </Grid>
 
       {/*----- History -----*/}
-      <Grid container direction='row' justify='space-around' className={classes.rowContainer} style={{ marginBottom: '20em' }}>
+      <Grid
+        container
+        direction={matchesMD? 'column': 'row'}
+        justify={matchesMD? undefined: 'space-around'}
+        className={classes.rowContainer}
+        style={{ marginBottom: '20em' }}
+      >
         <Grid item>
-          <Grid container direction='column'>
+          <Grid container direction='column' alignItems={matchesMD? 'center': undefined} style={{ textAlign: matchesMD? 'center': undefined }}>
             <Grid item>
               <Typography variant='h4' gutterBottom>
                 History
@@ -87,8 +94,10 @@ function AboutUs() {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid container justify='center' alignItems='center'>
-            <img src={history} alt='book with quill pen' style={{ maxHeight: '22em' }}/>
+          <Grid container justify='center' alignItems='center' style={{ height: '100%' }}>
+            <Grid item>
+              <img src={history} alt='book with quill pen' style={{ width: '100%', maxWidth: matchesLG? '20em': '40em' }}/>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
