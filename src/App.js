@@ -9,6 +9,7 @@ import CustomSoftware from './pages/CustomSoftware'
 import MobileApps from './pages/MobileApps'
 import Websites from './pages/Websites'
 import Revolution from './pages/Revolution'
+import AboutUs from './pages/AboutUs'
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path='/mobileapps' component={MobileApps} />
           <Route path='/websites' component={Websites} />
           <Route path='/revolution' component={Revolution} />
-          <Route path='/about' component={() => <div>About</div>} />
+          <Route path='/about' component={AboutUs} />
           <Route path='/contact' component={() => <div>Contact</div>} />
           <Route path='/estimate' component={() => <div>Estimate</div>} />
         </Switch>
