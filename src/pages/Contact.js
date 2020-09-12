@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -6,20 +6,45 @@ import CallToAction from '../components/CallToAction'
 import { Typography, useTheme } from '@material-ui/core'
 import phoneIcon from '../assets/phone.svg'
 import emailIcon from '../assets/email.svg'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
+import airplane from '../assets/send.svg'
 
 
-const useStyles = makeStyles(() => ({
-  mainContainer: {},
+const useStyles = makeStyles(theme => ({
+  button: {
+    ...theme.typography.estimate,
+    backgroundColor: theme.palette.common.arcOrange,
+    borderRadius: 50,
+    height: '4rem',
+    width: '14rem',
+    color: 'white',
+    fontWeight: 300,
+    textTransform: 'none',
+    fontSize: '1.5rem',
+    border: 0,
+  },
+  message: {
+    border: `2px solid ${theme.palette.common.arcBlue}`,
+    marginTop: '5em',
+    borderRadius: 5,
+  },
 }))
 
 function Contact() {
   const classes = useStyles()
   const theme = useTheme()
 
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
   return (
     <Grid container direction='row'>
-      <Grid item lg={4}>
-        <Grid container direction='column'>
+      <Grid item lg={4} container direction='row' justify='center' alignItems='center'>
+        <Grid item container direction='column' style={{ maxWidth: '20em' }}>
           <Grid item>
             <Typography variant='h2' style={{ lineHeight: 1 }}>
               Contact Us
@@ -30,28 +55,77 @@ function Contact() {
           </Grid>
 
           {/*-- Phone and Email --*/}
-          <Grid item container direction='row' alignItems='flex-end'>
-            <Grid item style={{ marginRight: '0.5em' }}>
-              <img src={phoneIcon} alt='phone' style={{ height: '1.2em' }} />
-            </Grid>
-            <Grid item>
-              <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
-                (555) 555-5555
-              </Typography>
+          <Grid item style={{ marginTop: '2em' }}>
+            <Grid container direction='row' alignItems='flex-end'>
+              <Grid item style={{ marginRight: '0.5em' }}>
+                <img src={phoneIcon} alt='phone' style={{ height: '1.2em' }} />
+              </Grid>
+              <Grid item>
+                <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
+                  (555) 555-5555
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
-          <Grid item container direction='row' alignItems='center'>
-            <Grid item style={{ marginRight: '0.5em' }}>
-              <img src={emailIcon} alt='email' style={{ height: '1em' }} />
+          <Grid item style={{ marginBottom: '2em' }}>
+            <Grid container direction='row' alignItems='center'>
+              <Grid item style={{ marginRight: '0.5em' }}>
+                <img src={emailIcon} alt='email' style={{ height: '1em' }} />
+              </Grid>
+              <Grid item>
+                <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
+                  oscar.ramos@ucsp.edu.pe
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
-                oscar.ramos@ucsp.edu.pe
-              </Typography>
-            </Grid>
+          </Grid>
+
+          {/*----- Form -----*/}
+          <Grid item>
+            <TextField
+              label='Name'
+              value={name}
+              onChange={e => setName(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              label='Phone Number'
+              value={phone}
+              onChange={e => setPhone(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              label='Email'
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              multiline
+              fullWidth
+              rows={10}
+              value={message}
+              onChange={e => setMessage(e.target.value)}
+              className={classes.message}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Grid>
+
+          <Grid item style={{ alignSelf: 'center', marginTop: '2em' }}>
+            <Button variant='outlined' className={classes.button}>
+              Send Message
+              <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
+            </Button>
           </Grid>
         </Grid>
       </Grid>
+
       <Grid item lg>
         <CallToAction />
       </Grid>
