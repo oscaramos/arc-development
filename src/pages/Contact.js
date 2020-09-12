@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { makeStyles } from '@material-ui/core/styles'
+import { useTheme } from '@material-ui/core'
+
 import CallToAction from '../components/CallToAction'
-import { Typography, useTheme } from '@material-ui/core'
+
 import phoneIcon from '../assets/phone.svg'
 import emailIcon from '../assets/email.svg'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-
 import airplane from '../assets/send.svg'
 
 
@@ -34,17 +37,29 @@ const useStyles = makeStyles(theme => ({
 
 function Contact() {
   const classes = useStyles()
+
   const theme = useTheme()
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
 
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+
   return (
-    <Grid container direction='row'>
-      <Grid item lg={4} container direction='row' justify='center' alignItems='center'>
-        <Grid item container direction='column' style={{ maxWidth: '20em' }}>
+    <Grid
+      container
+      direction={matchesMD ? 'column' : 'row'}
+    >
+      <Grid item container lg={4} direction='row' justify='center' alignItems='center'>
+        <Grid
+          item
+          container
+          direction='column'
+          style={{ maxWidth: matchesMD ? '30em' : '20em', padding: matchesXS? '4em 2em': matchesMD? '4em 0': undefined }}
+        >
           <Grid item>
             <Typography variant='h2' style={{ lineHeight: 1 }}>
               Contact Us
