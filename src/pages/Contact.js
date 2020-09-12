@@ -133,7 +133,9 @@ function Contact() {
               </Grid>
               <Grid item>
                 <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
-                  (555) 555-5555
+                  <a href='tel:5555555555' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    (555) 555-5555
+                  </a>
                 </Typography>
               </Grid>
             </Grid>
@@ -145,7 +147,9 @@ function Contact() {
               </Grid>
               <Grid item>
                 <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
-                  oscar.ramos@ucsp.edu.pe
+                  <a href='mailto:oscar.ramos@ucsp.edu.pe' style={{ textDecoration: 'none', color: 'inherit' }}>
+                    oscar.ramos@ucsp.edu.pe
+                  </a>
                 </Typography>
               </Grid>
             </Grid>
