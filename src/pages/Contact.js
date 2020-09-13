@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'none',
     fontSize: '1.5rem',
     border: 0,
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.light
+    }
   },
   message: {
     border: `2px solid ${theme.palette.common.arcBlue}`,
