@@ -250,10 +250,17 @@ function Contact() {
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
         maxWidth={matchesSM? 'xs': matchesMD ? 'sm' : 'md'}
-        fullWidth
         style={{ zIndex: 1302 }}
+        fullWidth
       >
-        <DialogContent>
+        <DialogContent style={{ padding: 0 }}>
+          <Grid container justify='flex-end' style={{ position: 'absolute', padding: '1em' }}>
+            <Grid item>
+              <Typography variant='h4' style={{ cursor: 'pointer' }} onClick={() => setDialogOpen(false)}>
+                X
+              </Typography>
+            </Grid>
+          </Grid>
           <Grid container direction='column' style={{ padding: matchesSM? '1em 1em' : matchesSM? '1em 3em': matchesMD ? '2em 5em' : '2em 16em' }}>
             <Grid item style={{ marginBottom: '1em' }}>
               <Typography variant='h2' align='center'>
