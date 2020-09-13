@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import Dialog from '@material-ui/core/Dialog'
+import DialogContent from '@material-ui/core/DialogContent'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTheme } from '@material-ui/core'
 
@@ -23,7 +25,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.arcOrange,
     borderRadius: 50,
     height: '4rem',
-    width: '14rem',
     color: 'white',
     fontWeight: 300,
     textTransform: 'none',
@@ -37,39 +38,117 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function Contact() {
+function ContactUsFormulary(props) {
+  const {
+    name, phone, email, message,
+    phoneHelper, emailHelper,
+    handleChange, validate,
+    onSendMessage
+  } = props
+
   const classes = useStyles()
 
+  return (
+    <Grid item container direction='column'>
+      <Grid item>
+        <TextField
+          label='Name'
+          value={name}
+          onChange={e => handleChange('name', e.target.value)}
+          fullWidth
+        />
+      </Grid>
+      <Grid item>
+        <TextField
+          label='Phone Number'
+          value={phone}
+          onChange={e => handleChange('phone', e.target.value)}
+          onBlur={e => validate('phone', e.target.value)}
+          error={phoneHelper.length > 0}
+          helperText={phoneHelper}
+          fullWidth
+        />
+      </Grid>
+      <Grid item>
+        <TextField
+          label='Email'
+          value={email}
+          onChange={e => handleChange('email', e.target.value)}
+          onBlur={e => validate('email', e.target.value)}
+          error={emailHelper.length > 0}
+          helperText={emailHelper}
+          fullWidth
+        />
+      </Grid>
+      <Grid item>
+        <TextField
+          multiline
+          fullWidth
+          rows={10}
+          value={message}
+          onChange={e => handleChange('message', e.target.value)}
+          className={classes.message}
+          InputProps={{ disableUnderline: true }}
+        />
+      </Grid>
+
+      <Grid item style={{ alignSelf: 'center', marginTop: '2em', width: '100%' }}>
+        <Button
+          variant='contained'
+          className={classes.button}
+          disabled={
+            name.length === 0
+            || email.length === 0
+            || phone.length === 0
+            || message.length === 0
+            || emailHelper.length !== 0
+            || phoneHelper.length !== 0
+          }
+          onClick={onSendMessage}
+          fullWidth
+        >
+          Send Message
+          <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
+        </Button>
+      </Grid>
+    </Grid>
+  )
+}
+
+function Contact() {
   const theme = useTheme()
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
 
-  const [name, setName] = useState('')
+  const [name, setName] = useState('oscaramos')
 
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState('921492405')
   const [phoneHelper, setPhoneHelper] = useState('')
 
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('oscar.ramos@ucsp.edu.pe')
   const [emailHelper, setEmailHelper] = useState('')
 
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('message')
 
-  const handleChange = event => {
-    switch (event.target.id) {
+  const [dialogOpen, setDialogOpen] = useState(true)
+
+  const handleChange = (id, value) => {
+    switch (id) {
       case 'name':
-        setName(event.target.value)
+        setName(value)
         break
 
       case 'phone':
-        setPhone(event.target.value)
+        setPhone(value)
         break
 
       case 'email':
-        setEmail(event.target.value)
+        setEmail(value)
         break
 
       case 'message':
-        setMessage(event.target.value)
+        setMessage(value)
         break
 
       default:
@@ -77,10 +156,10 @@ function Contact() {
     }
   }
 
-  const validate = event => {
-    switch (event.target.id) {
+  const validate = (id, value) => {
+    switch (id) {
       case 'phone':
-        if (!isMobilePhone(event.target.value)) {
+        if (!isMobilePhone(value)) {
           setPhoneHelper('Invalid phone number')
         } else {
           setPhoneHelper('')
@@ -88,7 +167,7 @@ function Contact() {
         break
 
       case 'email':
-        if (!isEmail(event.target.value)) {
+        if (!isEmail(value)) {
           setEmailHelper('Invalid email')
         } else {
           setEmailHelper('')
@@ -106,7 +185,7 @@ function Contact() {
       container
       direction={matchesMD ? 'column' : 'row'}
     >
-      <Grid item container lg={4} direction='row' justify='center' alignItems='center'>
+      <Grid item container lg={4} xl={3} direction='row' justify='center' alignItems='center'>
         <Grid
           item
           container
@@ -155,73 +234,45 @@ function Contact() {
             </Grid>
           </Grid>
 
-          {/*----- Form -----*/}
           <Grid item>
-            <TextField
-              id='name'
-              label='Name'
-              value={name}
-              onChange={handleChange}
-              fullWidth
+            <ContactUsFormulary
+              name={name} phone={phone} email={email} message={message}
+              phoneHelper={phoneHelper} emailHelper={emailHelper}
+              handleChange={handleChange} validate={validate}
+              onSendMessage={() => setDialogOpen(true)}
             />
-          </Grid>
-          <Grid item>
-            <TextField
-              id='phone'
-              label='Phone Number'
-              value={phone}
-              onChange={handleChange}
-              onBlur={validate}
-              error={phoneHelper.length > 0}
-              helperText={phoneHelper}
-              fullWidth
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id='email'
-              label='Email'
-              value={email}
-              onChange={handleChange}
-              onBlur={validate}
-              error={emailHelper.length > 0}
-              helperText={emailHelper}
-              fullWidth
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              id='message'
-              multiline
-              fullWidth
-              rows={10}
-              value={message}
-              onChange={handleChange}
-              className={classes.message}
-              InputProps={{ disableUnderline: true }}
-            />
-          </Grid>
-
-          <Grid item style={{ alignSelf: 'center', marginTop: '2em' }}>
-            <Button
-              variant='contained'
-              className={classes.button}
-              disabled={
-                name.length === 0
-                || email.length === 0
-                || phone.length === 0
-                || message.length === 0
-                || emailHelper.length !== 0
-                || phoneHelper.length !== 0
-              }
-            >
-              Send Message
-              <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
-            </Button>
           </Grid>
         </Grid>
       </Grid>
 
+      {/*----- Confirmation Dialog -----*/}
+      <Dialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        maxWidth={matchesSM? 'xs': matchesMD ? 'sm' : 'md'}
+        fullWidth
+        style={{ zIndex: 1302 }}
+      >
+        <DialogContent>
+          <Grid container direction='column' style={{ padding: matchesSM? '1em 1em' : matchesSM? '1em 3em': matchesMD ? '2em 5em' : '2em 16em' }}>
+            <Grid item style={{ marginBottom: '1em' }}>
+              <Typography variant='h2' align='center'>
+                Confirm Message
+              </Typography>
+            </Grid>
+            <Grid item>
+              <ContactUsFormulary
+                name={name} phone={phone} email={email} message={message}
+                phoneHelper={phoneHelper} emailHelper={emailHelper}
+                handleChange={handleChange}
+                validate={validate}
+              />
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
+
+      {/*----- Call To Action -----*/}
       <Grid item lg>
         <CallToAction />
       </Grid>
