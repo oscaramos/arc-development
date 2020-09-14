@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import clsx from 'clsx'
 
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-import clsx from 'clsx'
 
 const useStyles = makeStyles(theme => ({
   estimateButton: {
@@ -19,21 +18,17 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const FreeEstimateButton = ({ className, ...props }) => {
+function GoldenButton({ className, children, ...props }) {
   const classes = useStyles()
   return (
     <Button
-      component={Link}
-      to='/estimate'
       variant='contained'
       className={clsx(classes.estimateButton, className)}
       {...props}
     >
-      Free Estimate
+      { children }
     </Button>
   )
 }
 
-
-
-export default FreeEstimateButton
+export default GoldenButton

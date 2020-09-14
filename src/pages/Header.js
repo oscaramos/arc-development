@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import FreeEstimateButton from '../components/FreeEstimateButton'
+import GoldenButton from '../components/GoldenButton'
 
 import logo from '../assets/logo.svg'
 
@@ -199,7 +199,9 @@ const Header = () => {
         <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
         <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
       </Tabs>
-      <FreeEstimateButton className={classes.freeEstimateButton} />
+      <GoldenButton component={Link} to='/estimate' className={classes.freeEstimateButton}>
+        Free Estimate
+      </GoldenButton>
     </>
   )
 

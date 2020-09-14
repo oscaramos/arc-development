@@ -33,6 +33,7 @@ import { Typography } from '@material-ui/core'
 import animationData from '../animations/landinganimation/data'
 import Lottie from 'react-lottie'
 import IconButton from '@material-ui/core/IconButton'
+import GoldenButton from '../components/GoldenButton'
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {},
@@ -113,6 +114,13 @@ function Estimate() {
             <IconButton>
               <img src={forwardArrow} alt='forward arrow' />
             </IconButton>
+          </Grid>
+        </Grid>
+        <Grid container justify='center'>
+          <Grid item>
+            <GoldenButton style={{ fontSize: '1.2rem', height: '3em' }}>
+              Get Estimate
+            </GoldenButton>
           </Grid>
         </Grid>
       </Grid>

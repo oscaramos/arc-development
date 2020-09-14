@@ -11,7 +11,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 import CallToAction from '../components/CallToAction'
 import LearnMoreButton from '../components/LearnMoreButton'
-import FreeEstimateButton from '../components/FreeEstimateButton'
+import GoldenButton from '../components/GoldenButton'
 
 import animationData from '../animations/landinganimation/data'
 import customSoftwareIcon from '../assets/Custom Software Icon.svg'
@@ -149,7 +149,9 @@ const LandingPage = () => {
 
             <Grid container justify='center' style={{ marginTop: '1em' }}>
               <Grid item>
-                <FreeEstimateButton className={classes.estimateButton} />
+                <GoldenButton component={Link} to='/estimate' className={classes.estimateButton}>
+                  Free Estimate
+                </GoldenButton>
               </Grid>
               <Grid item>
                 <LearnMoreButton

@@ -9,7 +9,7 @@ import LearnMoreButton from './LearnMoreButton'
 
 import background from '../assets/background.jpg';
 import mobileBackground from '../assets/mobileBackground.jpg'
-import FreeEstimateButton from './FreeEstimateButton'
+import GoldenButton from './GoldenButton'
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,9 +33,6 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url(${mobileBackground})`,
       backgroundAttachment: 'inherit',
     }
-  },
-  estimateButton: {
-    fontSize: '1.5rem'
   }
 }))
 
@@ -75,7 +72,9 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item style={{ marginRight: matchesSM? 0: '5em' }}>
-        <FreeEstimateButton className={classes.estimateButton} />
+        <GoldenButton component={Link} to='/estimate' style={{ fontSize: '1.5rem' }}>
+          Free Estimate
+        </GoldenButton>
       </Grid>
       <div className={classes.background} />
     </Grid>

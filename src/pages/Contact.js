@@ -20,22 +20,14 @@ import CallToAction from '../components/CallToAction'
 import phoneIcon from '../assets/phone.svg'
 import emailIcon from '../assets/email.svg'
 import airplane from '../assets/send.svg'
+import GoldenButton from '../components/GoldenButton'
 
 
 const useStyles = makeStyles(theme => ({
   button: {
-    ...theme.typography.estimate,
-    backgroundColor: theme.palette.common.arcOrange,
-    borderRadius: 50,
     height: '4rem',
-    color: 'white',
-    fontWeight: 300,
-    textTransform: 'none',
     fontSize: '1.5rem',
-    border: 0,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.light
-    }
+    width: '100%'
   },
   message: {
     border: `2px solid ${theme.palette.common.arcBlue}`,
@@ -100,18 +92,17 @@ function ContactUsFormulary(props) {
       </Grid>
 
       <Grid item style={{ alignSelf: 'center', marginTop: '2em', width: '100%' }}>
-        <Button
-          variant='contained'
+        <GoldenButton
           className={classes.button}
-          disabled={
-            name.length === 0
-            || email.length === 0
-            || phone.length === 0
-            || message.length === 0
-            || emailHelper.length !== 0
-            || phoneHelper.length !== 0
-            || loading
-          }
+          // disabled={
+          //   name.length === 0
+          //   || email.length === 0
+          //   || phone.length === 0
+          //   || message.length === 0
+          //   || emailHelper.length !== 0
+          //   || phoneHelper.length !== 0
+          //   || loading
+          // }
           onClick={onSendMessage}
           fullWidth
         >
@@ -123,7 +114,7 @@ function ContactUsFormulary(props) {
                   <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
                 </>
           }
-        </Button>
+        </GoldenButton>
       </Grid>
     </Grid>
   )
