@@ -1,46 +1,65 @@
 import React from 'react'
+import Lottie from 'react-lottie'
 
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import useTheme from '@material-ui/core/styles/useTheme'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { makeStyles } from '@material-ui/core/styles'
 
-import check from '../assets/check.svg'
-import send from '../assets/send.svg'
+import GoldenButton from '../components/GoldenButton'
+
 import software from '../assets/software.svg'
 import mobile from '../assets/mobile.svg'
 import website from '../assets/website.svg'
 import backArrow from '../assets/backArrow.svg'
-import backArrowDisabled from '../assets/backArrowDisabled.svg'
 import forwardArrow from '../assets/forwardArrow.svg'
-import forwardArrowDisabled from '../assets/forwardArrowDisabled.svg'
-import camera from '../assets/camera.svg'
-import upload from '../assets/upload.svg'
-import person from '../assets/person.svg'
-import persons from '../assets/persons.svg'
-import info from '../assets/info.svg'
-import bell from '../assets/bell.svg'
-import people from '../assets/people.svg'
-import usersIcon from '../assets/users.svg'
-import iPhone from '../assets/iphone.svg'
-import gps from '../assets/gps.svg'
-import customized from '../assets/customized.svg'
-import data from '../assets/data.svg'
-import android from '../assets/android.svg'
-import globe from '../assets/globe.svg'
-import biometrics from '../assets/biometrics.svg'
 
 import estimateAnimation from '../animations/estimateAnimation/data.json'
-import { Typography } from '@material-ui/core'
-import animationData from '../animations/landinganimation/data'
-import Lottie from 'react-lottie'
-import IconButton from '@material-ui/core/IconButton'
-import GoldenButton from '../components/GoldenButton'
 
-const useStyles = makeStyles(theme => ({
-  mainContainer: {},
+
+const useStyles = makeStyles(() => ({
+  mainContainer: {
+    padding: '2em',
+    marginTop: '5em',
+    marginBottom: '5em'
+  },
 }))
 
 function Estimate() {
   const classes = useStyles()
+
+  const theme = useTheme()
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'))
+
+  const questions = [
+    {
+      id: 1,
+      title: 'Which service are you interested in?',
+      options: [
+        {
+          id: 1,
+          title: 'Custom Software Development',
+          image: software,
+          imageAlt: 'three floating screens outline',
+        },
+        {
+          id: 2,
+          title: 'iOS App Development',
+          image: mobile,
+          imageAlt: 'two phones and a tablet outline',
+        },
+        {
+          id: 3,
+          title: 'Website development',
+          image: website,
+          imageAlt: 'computer screen outline',
+        },
+      ],
+    },
+  ]
+
 
   const estimateOptions = {
     loop: true,
@@ -52,58 +71,61 @@ function Estimate() {
   }
 
   return (
-    <Grid container direction='row' className={classes.mainContainer}>
+    <Grid
+      container
+      direction={matchesMD? 'column': 'row'}
+      className={classes.mainContainer}
+    >
       {/*----- Estimate ------*/}
-      <Grid item container lg={6} direction='column'>
+      <Grid item container lg direction='column' alignItems='center'>
         <Grid item>
           <Typography variant='h2' align='center'>
             Estimate
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item style={{ maxWidth: '40em', height: '40em' }}>
           <Lottie options={estimateOptions} height='100%' width='100%' />
         </Grid>
       </Grid>
 
-      {/*----- Question ------*/}
-      <Grid item container lg={6} direction='column'>
-        <Grid item>
-          <Typography variant='h4' align='center'>
-            Which service are you interested in?
-          </Typography>
-        </Grid>
-        <Grid item container direction='row'>
-          <Grid item container lg={4} direction='column' alignItems='center'>
-            <Grid item style={{ maxWidth: '12em' }}>
-              <Typography variant='h6' align='center'>
-                Custom Software Development
-              </Typography>
+      {/*----- Questions ------*/}
+      <Grid item container lg direction='column'>
+        {
+          questions.map(question => (
+            <Grid item container key={question.id} direction='column'>
+              {/*-- Title --*/}
+              <Grid item>
+                <Typography variant='h4' align='center' gutterBottom>
+                  {question.title}
+                </Typography>
+              </Grid>
+
+              {/*-- Questions options --*/}
+              <Grid item container direction={matchesMD? 'column' :'row'} style={{ marginTop: '2.5em', marginBottom: '2.5em' }}>
+                {
+                  question.options.map(option => (
+                    <Grid key={option.id} item container lg={4} direction='column' alignItems='center'>
+                      <Grid item style={{ maxWidth: '12em' }}>
+                        <Typography variant='h6' align='center'>
+                          {option.title}
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <img
+                          src={option.image}
+                          alt={option.imageAlt}
+                          style={{ width: '10em', height: '10em' }}
+                        />
+                      </Grid>
+                    </Grid>
+                  ))
+                }
+              </Grid>
             </Grid>
-            <Grid item>
-              <img src={software} alt='three floating screens' style={{ width: '10em', height: '10em' }} />
-            </Grid>
-          </Grid>
-          <Grid item container lg={4} direction='column' alignItems='center'>
-            <Grid item style={{ maxWidth: '12em' }}>
-              <Typography variant='h6' align='center'>
-                iOS App Development
-              </Typography>
-            </Grid>
-            <Grid item>
-              <img src={mobile} alt='three floating screens' style={{ width: '10em', height: '10em' }} />
-            </Grid>
-          </Grid>
-          <Grid item container lg={4} direction='column' alignItems='center'>
-            <Grid item style={{ maxWidth: '12em' }}>
-              <Typography variant='h6' align='center'>
-                Website development
-              </Typography>
-            </Grid>
-            <Grid item>
-              <img src={website} alt='three floating screens' style={{ width: '10em', height: '10em' }} />
-            </Grid>
-          </Grid>
-        </Grid>
+          ))
+        }
+
+        {/*----- Navigation ------*/}
         <Grid container direction='row' justify='space-around'>
           <Grid item>
             <IconButton>
@@ -116,7 +138,9 @@ function Estimate() {
             </IconButton>
           </Grid>
         </Grid>
-        <Grid container justify='center'>
+
+        {/*----- Get estimate ------*/}
+        <Grid container justify='center' style={{ marginTop: '2.5em' }}>
           <Grid item>
             <GoldenButton style={{ fontSize: '1.2rem', height: '3em' }}>
               Get Estimate
