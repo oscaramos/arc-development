@@ -11,6 +11,7 @@ import Websites from './pages/Websites'
 import Revolution from './pages/Revolution'
 import AboutUs from './pages/AboutUs'
 import Contact from './pages/Contact'
+import Estimate from './pages/Estimate'
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path='/revolution' component={Revolution} />
           <Route path='/about' component={AboutUs} />
           <Route path='/contact' component={Contact} />
-          <Route path='/estimate' component={() => <div>Estimate</div>} />
+          <Route path='/estimate' component={Estimate} />
         </Switch>
         <Footer />
       </BrowserRouter>
