@@ -10,7 +10,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -120,32 +120,32 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = () => {
+function Header() {
   const classes = useStyles()
   const location = useLocation()
 
-  const [value, setValue] = useState(0);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0)
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [open, setOpen] = useState(false)
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const theme = useTheme()
   const matchMD = useMediaQuery(theme.breakpoints.down('md'))
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget)
     setOpen(true)
-  };
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(null)
     setOpen(false)
-  };
+  }
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null)
@@ -154,10 +154,10 @@ const Header = () => {
   }
 
   const menuOptions = [
-    { link: "/services", name: "Services", activeIndex: 0},
-    { link: "/customsoftware", name: "Custom Software Development", activeIndex: 1},
-    { link: "/mobileapps", name: "iOS/Android App Development", activeIndex: 2},
-    { link: "/websites", name: "Website Development", activeIndex: 3},
+    { link: '/services', name: 'Services', activeIndex: 0 },
+    { link: '/customsoftware', name: 'Custom Software Development', activeIndex: 1 },
+    { link: '/mobileapps', name: 'iOS/Android App Development', activeIndex: 2 },
+    { link: '/websites', name: 'Website Development', activeIndex: 3 },
   ]
 
   useEffect(() => {
@@ -182,18 +182,20 @@ const Header = () => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor="primary"
+        indicatorColor='primary'
       >
-        <Tab className={classes.tab} component={Link} to="/" label="Home" />
+        <Tab className={classes.tab} component={Link} to='/' label='Home' />
         <Tab
-          aria-owns={anchorEl? 'simple-menu': undefined}
-          aria-haspopup={anchorEl? 'true': undefined}
+          aria-owns={anchorEl ? 'simple-menu' : undefined}
+          aria-haspopup={anchorEl ? 'true' : undefined}
           onMouseOver={handleClick}
-          className={classes.tab} component={Link} to="/services" label="Services"
+          className={classes.tab} component={Link} to='/services' label='Services'
         />
-        <Tab className={classes.tab} component={Link} to="/revolution" label="The Revolution" />
-        <Tab className={classes.tab} component={Link} to="/about" label="About Us" />
-        <Tab className={classes.tab} component={Link} to="/contact" label="Contact Us" />
+        <Tab className={classes.tab} component={Link} to='/revolution' label='The Revolution' />
+        <Tab className={classes.tab} component={Link} to='/about' label='About Us' />
+        <Tab className={classes.tab} component={Link} to='/contact' label='Contact Us' />
+
+        <Tab className={classes.tab} component={Link} to='/estimate' label='Contact Us' style={{ display: 'none' }} />
       </Tabs>
       <GoldenButton component={Link} to='/estimate' className={classes.freeEstimateButton}>
         Free Estimate
@@ -201,17 +203,19 @@ const Header = () => {
     </>
   )
 
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const [drawerIndex, setDrawerIndex] = useState(0);
+  const [openDrawer, setOpenDrawer] = useState(false)
+  const [drawerIndex, setDrawerIndex] = useState(0)
 
   const drawerItems = [
-    { link: '/', name: 'Home', activeIndex: 0},
-    { link: '/services', name: 'Services', activeIndex: 1},
-    { link: '/revolution', name: 'The revolution', activeIndex: 2},
-    { link: '/about', name: 'About us', activeIndex: 3},
-    { link: '/contact', name: 'Contact us', activeIndex: 4},
-    { link: '/estimate', name: 'Free estimate', activeIndex: 5,
-      className: classes.drawerItemEstimate},
+    { link: '/', name: 'Home', activeIndex: 0 },
+    { link: '/services', name: 'Services', activeIndex: 1 },
+    { link: '/revolution', name: 'The revolution', activeIndex: 2 },
+    { link: '/about', name: 'About us', activeIndex: 3 },
+    { link: '/contact', name: 'Contact us', activeIndex: 4 },
+    {
+      link: '/estimate', name: 'Free estimate', activeIndex: 5,
+      className: classes.drawerItemEstimate,
+    },
   ]
 
   useEffect(() => {
@@ -279,8 +283,8 @@ const Header = () => {
 
             <Menu
               id='simple-menu' anchorEl={anchorEl} open={open}
-              onClose={handleClose} MenuListProps={{onMouseLeave: handleClose}}
-              classes={{paper: classes.menuPaper}} elevation={0}
+              onClose={handleClose} MenuListProps={{ onMouseLeave: handleClose }}
+              classes={{ paper: classes.menuPaper }} elevation={0}
               style={{ zIndex: 1302 }}
               keepMounted
             >
@@ -295,7 +299,7 @@ const Header = () => {
                     selected={index === selectedIndex}
                   >
                     {menuOption.name}
-                  </MenuItem>
+                  </MenuItem>,
                 )
               }
             </Menu>
