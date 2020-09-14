@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import useAxios from 'axios-hooks'
 import isEmail from 'validator/lib/isEmail'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 
@@ -9,6 +10,8 @@ import TextField from '@material-ui/core/TextField'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Snackbar from '@material-ui/core/Snackbar'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTheme } from '@material-ui/core'
 
@@ -46,7 +49,8 @@ function ContactUsFormulary(props) {
     name, phone, email, message,
     phoneHelper, emailHelper,
     handleChange, validate,
-    onSendMessage
+    onSendMessage,
+    loading
   } = props
 
   const classes = useStyles()
@@ -106,12 +110,19 @@ function ContactUsFormulary(props) {
             || message.length === 0
             || emailHelper.length !== 0
             || phoneHelper.length !== 0
+            || loading
           }
           onClick={onSendMessage}
           fullWidth
         >
-          Send Message
-          <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
+          {
+            loading
+              ? <CircularProgress />
+              : <>
+                  Send Message
+                  <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
+                </>
+          }
         </Button>
       </Grid>
     </Grid>
@@ -124,17 +135,15 @@ function Contact() {
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
 
-  const [name, setName] = useState('oscaramos')
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-  const [phone, setPhone] = useState('921492405')
   const [phoneHelper, setPhoneHelper] = useState('')
-
-  const [email, setEmail] = useState('oscar.ramos@ucsp.edu.pe')
   const [emailHelper, setEmailHelper] = useState('')
 
-  const [message, setMessage] = useState('message')
-
-  const [dialogOpen, setDialogOpen] = useState(true)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const handleChange = (id, value) => {
     switch (id) {
@@ -182,6 +191,48 @@ function Contact() {
     }
   }
 
+  const [{ data, loading, error }, handleConfirm] = useAxios(
+    {
+      method: 'get',
+      url: 'https://us-central1-arc-development-7dd3f.cloudfunctions.net/sendMail',
+      params: {
+        name,
+        email,
+        phone,
+        message
+      }
+    },
+    { manual: true }
+  )
+
+  const [alert, setAlert] = useState({
+    open: false,
+    message: '',
+    backgroundColor: ''
+  })
+
+
+  useEffect(() => {
+    if (data) {
+      setDialogOpen(false)
+      setName('')
+      setEmail('')
+      setPhone('')
+      setMessage('')
+
+      setAlert({
+        open: true,
+        message: 'Message sent successfully!',
+        backgroundColor: '#4BB543'
+      })
+    } else if(error) {
+      setAlert({
+        open: true,
+        message: 'Something went wrong, please try again!',
+        backgroundColor: '#FF3232'
+      })
+    }
+  }, [data, error])
 
   return (
     <Grid
@@ -243,6 +294,7 @@ function Contact() {
               phoneHelper={phoneHelper} emailHelper={emailHelper}
               handleChange={handleChange} validate={validate}
               onSendMessage={() => setDialogOpen(true)}
+              loading={loading}
             />
           </Grid>
         </Grid>
@@ -274,8 +326,9 @@ function Contact() {
               <ContactUsFormulary
                 name={name} phone={phone} email={email} message={message}
                 phoneHelper={phoneHelper} emailHelper={emailHelper}
-                handleChange={handleChange}
-                validate={validate}
+                handleChange={handleChange} validate={validate}
+                onSendMessage={handleConfirm}
+                loading={loading}
               />
             </Grid>
           </Grid>
@@ -286,6 +339,15 @@ function Contact() {
       <Grid item lg>
         <CallToAction />
       </Grid>
+
+      <Snackbar
+        open={alert.open}
+        message={alert.message}
+        ContentProps={{ style: { backgroundColor: alert.backgroundColor } }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        onClose={() => setAlert({ ...alert, open: false })}
+        autoHideDuration={4000}
+      />
     </Grid>
   )
 }
