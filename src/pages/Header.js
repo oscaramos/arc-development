@@ -120,10 +120,6 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-// TODO: use disable* when possible
-// TODO: refactor typography when possible
-// TODO: MUI component over Others component
-
 const Header = () => {
   const classes = useStyles()
   const location = useLocation()
