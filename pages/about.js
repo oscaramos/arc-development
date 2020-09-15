@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import useTheme from '@material-ui/core/styles/useTheme'
@@ -36,6 +37,9 @@ function About() {
 
   return (
     <Grid container direction='column'>
+      <Head>
+        <title key='title'>About Us - History & Team | Arc Development</title>
+      </Head>
       {/*----- About Us ------*/}
       <Grid item className={classes.rowContainer} style={{ marginTop: '2em' }}>
         <Typography variant='h2' gutterBottom align={matchesMD? 'center': undefined}>

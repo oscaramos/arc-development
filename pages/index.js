@@ -1,6 +1,7 @@
 import React from 'react'
 import Lottie from 'react-lottie'
 import Link from '../src/components/Link'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -132,6 +133,9 @@ const Landingpage = () => {
 
   return (
     <Grid container direction='column' className={classes.mainContainer}>
+      <Head>
+        <title key='title'>Custom Software, Mobile Apps and Websites | Arc Development</title>
+      </Head>
       {/*---- Hero Block -----*/}
       <Grid item>
         <Grid container direction='row' alignItems='center' justify='flex-end'>

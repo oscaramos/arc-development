@@ -1,5 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -70,6 +71,9 @@ function Estimate() {
       direction={matchesMD? 'column': 'row'}
       className={classes.mainContainer}
     >
+      <Head>
+        <title key='title'>Free Custom Software Estimate | Arc Development</title>
+      </Head>
       {/*----- Estimate ------*/}
       <Grid item container lg direction='column' alignItems='center'>
         <Grid item>

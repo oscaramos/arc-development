@@ -1,5 +1,7 @@
 import React from 'react'
 import Lottie from 'react-lottie'
+import Head from 'next/head'
+
 import Link from '../src/components/Link'
 
 import Grid from '@material-ui/core/Grid'
@@ -48,6 +50,9 @@ function Mobileapps() {
 
   return (
     <>
+      <Head>
+        <title key='title'>iOS/Android App Design and Development | Arc Development</title>
+      </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*----- iOS/Android App Development -----*/}
         <Grid

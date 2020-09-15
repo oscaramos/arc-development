@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from '../src/components/Link'
 import Lottie from 'react-lottie'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
@@ -84,6 +85,9 @@ function Customsoftware() {
   return (
     <>
       <Grid container direction='column' className={classes.mainContainer}>
+        <Head>
+          <title key='title'>Custom Software Development and Design - Free Estimate</title>
+        </Head>
         {/*----- Custom Software Development -----*/}
         <Grid
           item container

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../src/components/Link'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -47,6 +48,9 @@ function Services() {
 
   return (
     <Grid container direction='column'>
+      <Head>
+        <title key='title'>Top Custom Software Development Services | Arc Development</title>
+      </Head>
       <Grid
         item
         style={{

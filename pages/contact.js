@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useAxios from 'axios-hooks'
 import isEmail from 'validator/lib/isEmail'
 import isMobilePhone from 'validator/lib/isMobilePhone'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -43,6 +44,9 @@ function ContactUsFormulary(props) {
 
   return (
     <Grid item container direction='column'>
+      <Head>
+        <title key='title'>Contact Us | Arc Development</title>
+      </Head>
       <Grid item>
         <TextField
           label='Name'

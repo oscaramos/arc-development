@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '../src/components/Link'
+import Head from 'next/head'
 
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { Typography, useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
+import Link from '../src/components/Link'
 import CallToAction from '../src/components/CallToAction'
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +40,9 @@ function Websites() {
 
   return (
     <>
+      <Head>
+        <title key='title'>Stunning Custom Website Design | Arc Development</title>
+      </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*------ Website Development ------*/}
         <Grid
