@@ -63,6 +63,7 @@ function Revolution() {
           property='og:url'
           content='myUrl.com/revolution'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/revolution' />
       </Head>
       <Grid container direction='column' className={classes.rowContainer}>
         <Grid item>

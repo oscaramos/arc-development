@@ -103,6 +103,7 @@ function Customsoftware() {
             property='og:url'
             content='myUrl.com/customsoftware'
           />
+          <link rel='canonical' key='canonical' href='myUrl.com/customsoftware' />
         </Head>
         {/*----- Custom Software Development -----*/}
         <Grid

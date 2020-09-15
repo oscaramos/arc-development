@@ -89,6 +89,7 @@ function Estimate() {
           property='og:url'
           content='myUrl.com/estimate'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/estimate' />
       </Head>
       {/*----- Estimate ------*/}
       <Grid item container lg direction='column' alignItems='center'>

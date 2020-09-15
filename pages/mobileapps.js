@@ -68,6 +68,7 @@ function Mobileapps() {
           property='og:url'
           content='myUrl.com/mobileapps'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/mobileapps' />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*----- iOS/Android App Development -----*/}

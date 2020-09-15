@@ -58,6 +58,7 @@ function Websites() {
           property='og:url'
           content='myUrl.com/websites'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/websites' />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*------ Website Development ------*/}

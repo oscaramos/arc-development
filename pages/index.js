@@ -151,6 +151,7 @@ const Landingpage = () => {
           property='og:url'
           content='myUrl.com/'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/' />
       </Head>
       {/*---- Hero Block -----*/}
       <Grid item>

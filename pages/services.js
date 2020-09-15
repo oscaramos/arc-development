@@ -66,6 +66,7 @@ function Services() {
           property='og:url'
           content='myUrl.com/services'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/services' />
       </Head>
       <Grid
         item

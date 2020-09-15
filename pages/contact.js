@@ -243,6 +243,7 @@ function Contact() {
           property='og:url'
           content='myUrl.com/contact'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/contact' />
       </Head>
       <Grid item container lg={4} xl={3} direction='row' justify='center' alignItems='center'>
         <Grid

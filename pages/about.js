@@ -55,6 +55,7 @@ function About() {
           property='og:url'
           content='myUrl.com/about'
         />
+        <link rel='canonical' key='canonical' href='myUrl.com/about' />
       </Head>
       {/*----- About Us ------*/}
       <Grid item className={classes.rowContainer} style={{ marginTop: '2em' }}>
