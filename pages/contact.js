@@ -92,15 +92,15 @@ function ContactUsFormulary(props) {
       <Grid item style={{ alignSelf: 'center', marginTop: '2em', width: '100%' }}>
         <GoldenButton
           className={classes.button}
-          // disabled={
-          //   name.length === 0
-          //   || email.length === 0
-          //   || phone.length === 0
-          //   || message.length === 0
-          //   || emailHelper.length !== 0
-          //   || phoneHelper.length !== 0
-          //   || loading
-          // }
+          disabled={
+            name.length === 0
+            || email.length === 0
+            || phone.length === 0
+            || message.length === 0
+            || emailHelper.length !== 0
+            || phoneHelper.length !== 0
+            || loading
+          }
           onClick={onSendMessage}
           fullWidth
         >
