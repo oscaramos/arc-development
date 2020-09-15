@@ -14,13 +14,8 @@ import Snackbar from '@material-ui/core/Snackbar'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTheme } from '@material-ui/core'
 
-import CallToAction from '../components/CallToAction'
-
-import phoneIcon from '../assets/phone.svg'
-import emailIcon from '../assets/email.svg'
-import airplane from '../assets/send.svg'
-import GoldenButton from '../components/GoldenButton'
-
+import CallToAction from '../src/components/CallToAction'
+import GoldenButton from '../src/components/GoldenButton'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -110,7 +105,7 @@ function ContactUsFormulary(props) {
               ? <CircularProgress />
               : <>
                   Send Message
-                  <img src={airplane} alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
+                  <img src='/assets/send.svg' alt='airplane' style={{ width: '1.5rem', marginLeft: '0.5rem' }} />
                 </>
           }
         </GoldenButton>
@@ -252,7 +247,7 @@ function Contact() {
           <Grid item style={{ marginTop: '2em' }}>
             <Grid container direction='row' alignItems='flex-end'>
               <Grid item style={{ marginRight: '0.5em' }}>
-                <img src={phoneIcon} alt='phone' style={{ height: '1.2em' }} />
+                <img src='/assets/phone.svg' alt='phone' style={{ height: '1.2em' }} />
               </Grid>
               <Grid item>
                 <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>
@@ -266,7 +261,7 @@ function Contact() {
           <Grid item style={{ marginBottom: '2em' }}>
             <Grid container direction='row' alignItems='center'>
               <Grid item style={{ marginRight: '0.5em' }}>
-                <img src={emailIcon} alt='email' style={{ height: '1em' }} />
+                <img src='/assets/email.svg' alt='email' style={{ height: '1em' }} />
               </Grid>
               <Grid item>
                 <Typography variant='body1' style={{ color: theme.palette.common.arcBlue }}>

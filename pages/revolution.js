@@ -7,19 +7,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
-import CallToAction from '../components/CallToAction'
+import CallToAction from '../src/components/CallToAction'
 
-import technologyAnimation from '../animations/technologyAnimation/data.json'
-
-import vision from '../assets/vision.svg'
-import consultation from '../assets/consultationIcon.svg'
-import mockup from '../assets/mockupIcon.svg'
-import review from '../assets/reviewIcon.svg'
-import design from '../assets/designIcon.svg'
-import build from '../assets/buildIcon.svg'
-import launch from '../assets/launchIcon.svg'
-import maintain from '../assets/maintainIcon.svg'
-import iterate from '../assets/iterateIcon.svg'
+import technologyAnimation from '../public/animations/technologyAnimation/data.json'
 
 
 const useStyles = makeStyles(theme => ({
@@ -70,7 +60,7 @@ function Revolution() {
         >
           <Grid item lg>
             <img
-              src={vision}
+              src='/assets/vision.svg'
               alt='mountain through binoculars'
               style={{ width:'100%', maxWidth: '30em', height: 'auto' }}
             />
@@ -230,7 +220,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={consultation}
+            src='/assets/consultationIcon.svg'
             alt='handshakes'
             style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
           />
@@ -275,7 +265,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={mockup}
+            src='/assets/mockupIcon.svg'
             alt='monitor'
             style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
           />
@@ -320,7 +310,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={review}
+            src='/assets/reviewIcon.svg'
             alt='magnifying glass'
             style={{ width: '100%', maxWidth: '25em', height: 'auto' }}
           />
@@ -361,7 +351,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={design}
+            src='/assets/designIcon.svg'
             alt='design'
             style={{ width: '100%', maxWidth: '40em', height: 'auto' }}
           />
@@ -416,7 +406,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={build}
+            src='/assets/buildIcon.svg'
             alt='build'
             style={{ width: '100%', maxWidth: '40em', height: 'auto' }}
           />
@@ -461,7 +451,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={launch}
+            src='/assets/launchIcon.svg'
             alt='launch'
             style={{ width: '100%', maxWidth: '10em', height: 'auto' }}
           />
@@ -506,7 +496,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={maintain}
+            src='/assets/maintainIcon.svg'
             alt='maintain'
             style={{ width: '100%', maxWidth: '20em', height: 'auto' }}
           />
@@ -551,7 +541,7 @@ function Revolution() {
         </Grid>
         <Grid item lg style={{ alignSelf: 'center' }}>
           <img
-            src={iterate}
+            src='/assets/iterateIcon.svg'
             alt='domino'
             style={{ width: '100%', maxWidth: '30em', height: 'auto' }}
           />

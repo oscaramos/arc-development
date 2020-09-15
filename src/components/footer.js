@@ -1,15 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from './Link'
 
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import Hidden from '@material-ui/core/Hidden'
-
-import facebook from '../assets/facebook.svg'
-import twitter from '../assets/twitter.svg'
-import instagram from '../assets/instagram.svg'
-import footerAdornment from '../assets/Footer Adornment.svg'
-
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -68,7 +62,7 @@ const Footer = () => {
         <Grid container justify='center' className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
             <Grid container direction='column' spacing={2}>
-              <Grid item component={Link} to='/' className={classes.link}>
+              <Grid item component={Link} href='/' className={classes.link}>
                 Home
               </Grid>
             </Grid>
@@ -76,16 +70,16 @@ const Footer = () => {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction='column' spacing={2}>
-              <Grid item component={Link} to='/services' className={classes.link}>
+              <Grid item component={Link} href='/services' className={classes.link}>
                 Services
               </Grid>
-              <Grid item component={Link} to='/customsoftware' className={classes.link}>
+              <Grid item component={Link} href='/customsoftware' className={classes.link}>
                 Custom Software Development
               </Grid>
-              <Grid item component={Link} to='/mobileapps' className={classes.link}>
+              <Grid item component={Link} href='/mobileapps' className={classes.link}>
                 iOS/App Development
               </Grid>
-              <Grid item component={Link} to='/websites' className={classes.link}>
+              <Grid item component={Link} href='/websites' className={classes.link}>
                 Website Development
               </Grid>
             </Grid>
@@ -93,16 +87,16 @@ const Footer = () => {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction='column' spacing={2}>
-              <Grid item component={Link} to='/revolution' className={classes.link}>
+              <Grid item component={Link} href='/revolution' className={classes.link}>
                 The Revolution
               </Grid>
-              <Grid item component={Link} to='/revolution' className={classes.link}>
+              <Grid item component={Link} href='/revolution' className={classes.link}>
                 Vision
               </Grid>
-              <Grid item component={Link} to='/revolution' className={classes.link}>
+              <Grid item component={Link} href='/revolution' className={classes.link}>
                 Technology
               </Grid>
-              <Grid item component={Link} to='/revolution' className={classes.link}>
+              <Grid item component={Link} href='/revolution' className={classes.link}>
                 Process
               </Grid>
             </Grid>
@@ -110,13 +104,13 @@ const Footer = () => {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction='column' spacing={2}>
-              <Grid item component={Link} to='/about' className={classes.link}>
+              <Grid item component={Link} href='/about' className={classes.link}>
                 About Us
               </Grid>
-              <Grid item component={Link} to='/about' className={classes.link}>
+              <Grid item component={Link} href='/about' className={classes.link}>
                 History
               </Grid>
-              <Grid item component={Link} to='/about' className={classes.link}>
+              <Grid item component={Link} href='/about' className={classes.link}>
                 Team
               </Grid>
             </Grid>
@@ -124,7 +118,7 @@ const Footer = () => {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction='column' spacing={2}>
-              <Grid item component={Link} to='/contact' className={classes.link}>
+              <Grid item component={Link} href='/contact' className={classes.link}>
                 Contact Us
               </Grid>
             </Grid>
@@ -133,20 +127,20 @@ const Footer = () => {
       </Hidden>
 
       <img
-        src={footerAdornment}
+        src='/assets/Footer Adornment.svg'
         alt='black decorative slash'
         className={classes.adornment}
       />
 
       <Grid container justify='flex-end' className={classes.socialContainer} spacing={2}>
         <Grid item component="a" href="http://www.facebook.com" rel="noopenet noreferrer" target="_blank">
-          <img alt='facebook logo' src={facebook} className={classes.socialIcon} />
+          <img alt='facebook logo' src='/assets/facebook.svg' className={classes.socialIcon} />
         </Grid>
         <Grid item component="a" href="http://www.twitter.com" rel="noopenet noreferrer" target="_blank">
-          <img alt='twitter logo' src={twitter} className={classes.socialIcon} />
+          <img alt='twitter logo' src='/assets/twitter.svg' className={classes.socialIcon} />
         </Grid>
         <Grid item component="a" href="http://www.instagram.com" rel="noopenet noreferrer" target="_blank">
-          <img alt='instagram logo' src={instagram} className={classes.socialIcon} />
+          <img alt='instagram logo' src='/assets/instagram.svg' className={classes.socialIcon} />
         </Grid>
       </Grid>
     </footer>

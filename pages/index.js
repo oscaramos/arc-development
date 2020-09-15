@@ -1,6 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
-import { Link } from 'react-router-dom'
+import Link from '../src/components/Link'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -9,16 +9,11 @@ import CardContent from '@material-ui/core/CardContent'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import CallToAction from '../components/CallToAction'
-import LearnMoreButton from '../components/LearnMoreButton'
-import GoldenButton from '../components/GoldenButton'
+import CallToAction from '../src/components/CallToAction'
+import LearnMoreButton from '../src/components/LearnMoreButton'
+import GoldenButton from '../src/components/GoldenButton'
 
-import animationData from '../animations/landinganimation/data'
-import customSoftwareIcon from '../assets/Custom Software Icon.svg'
-import mobileAppsIcon from '../assets/mobileIcon.svg'
-import websitesIcon from '../assets/websiteIcon.svg'
-import revolutionBackground from '../assets/repeatingBackground.svg'
-import informationBackground from '../assets/infoBackground.svg'
+import animationData from '../public/animations/landinganimation/data'
 
 
 
@@ -86,7 +81,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   revolutionBackground: {
-    backgroundImage: `url(${revolutionBackground})`,
+    backgroundImage: `url(/assets/repeatingBackground.svg)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -108,7 +103,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   informationBackground: {
-    backgroundImage: `url(${informationBackground})`,
+    backgroundImage: `url(/assets/infoBackground.svg)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -119,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const LandingPage = () => {
+const Landingpage = () => {
   const classes = useStyles()
 
   const theme = useTheme()
@@ -149,7 +144,7 @@ const LandingPage = () => {
 
             <Grid container justify='center' style={{ marginTop: '1em' }}>
               <Grid item>
-                <GoldenButton component={Link} to='/estimate' className={classes.estimateButton}>
+                <GoldenButton component={Link} href='/estimate' className={classes.estimateButton}>
                   Free Estimate
                 </GoldenButton>
               </Grid>
@@ -189,11 +184,11 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/customsoftware'
+            component={Link} href='/customsoftware'
           />
         </Grid>
         <Grid item>
-          <img className={classes.icon} alt='custom software icon' src={customSoftwareIcon} />
+          <img className={classes.icon} alt='custom software icon' src='/assets/Custom Software Icon.svg' />
         </Grid>
       </Grid>
 
@@ -218,11 +213,11 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/mobileapps'
+            component={Link} href='/mobileapps'
           />
         </Grid>
         <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
-          <img className={classes.icon} alt='mobile apps icon' src={mobileAppsIcon} />
+          <img className={classes.icon} alt='mobile apps icon' src='/assets/mobileIcon.svg' />
         </Grid>
       </Grid>
 
@@ -246,11 +241,11 @@ const LandingPage = () => {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/websites'
+            component={Link} href='/websites'
           />
         </Grid>
         <Grid item>
-          <img className={classes.icon} alt='websites icon' src={websitesIcon} />
+          <img className={classes.icon} alt='websites icon' src='/assets/websiteIcon.svg' />
         </Grid>
       </Grid>
 
@@ -277,7 +272,7 @@ const LandingPage = () => {
                   <LearnMoreButton
                     className={classes.learnButton}
                     color={theme.palette.common.arcBlue}
-                    component={Link} to='/revolution'
+                    component={Link} href='/revolution'
                   />
                 </Grid>
               </Grid>
@@ -310,7 +305,7 @@ const LandingPage = () => {
                 <LearnMoreButton
                   className={classes.learnButton}
                   color='white'
-                  component={Link} to='/about'
+                  component={Link} href='/about'
                 />
               </Grid>
             </Grid>
@@ -332,7 +327,7 @@ const LandingPage = () => {
                 <LearnMoreButton
                   className={classes.learnButton}
                   color='white'
-                  component={Link} to='/contact'
+                  component={Link} href='/contact'
                 />
               </Grid>
             </Grid>
@@ -348,4 +343,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage
+export default Landingpage

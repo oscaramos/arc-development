@@ -1,16 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../src/components/Link'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { useMediaQuery } from '@material-ui/core'
 
-import LearnMoreButton from '../components/LearnMoreButton'
-
-import customSoftwareIcon from '../assets/Custom Software Icon.svg'
-import mobileAppsIcon from '../assets/mobileIcon.svg'
-import websitesIcon from '../assets/websiteIcon.svg'
+import LearnMoreButton from '../src/components/LearnMoreButton'
 
 const useStyles = makeStyles(theme => ({
   learnButton: {
@@ -84,11 +80,11 @@ function Services() {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/mobileapps'
+            component={Link} href='/mobileapps'
           />
         </Grid>
         <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
-          <img className={classes.icon} alt='mobile apps icon' src={mobileAppsIcon} width='250em' />
+          <img className={classes.icon} alt='mobile apps icon' src='/assets/mobileIcon.svg' width='250em' />
         </Grid>
       </Grid>
 
@@ -111,11 +107,11 @@ function Services() {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/customsoftware'
+            component={Link} href='/customsoftware'
           />
         </Grid>
         <Grid item>
-          <img className={classes.icon} alt='custom software icon' src={customSoftwareIcon} />
+          <img className={classes.icon} alt='custom software icon' src='/assets/Custom Software Icon.svg' />
         </Grid>
       </Grid>
 
@@ -139,11 +135,11 @@ function Services() {
           <LearnMoreButton
             className={classes.learnButton}
             color={theme.palette.common.arcBlue}
-            component={Link} to='/websites'
+            component={Link} href='/websites'
           />
         </Grid>
         <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
-          <img className={classes.icon} alt='websites icon' src={websitesIcon} width='250em' />
+          <img className={classes.icon} alt='websites icon' src='/assets/websiteIcon.svg' width='250em' />
         </Grid>
       </Grid>
     </Grid>

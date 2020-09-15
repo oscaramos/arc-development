@@ -1,17 +1,17 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Header from './pages/Header'
-import Footer from './pages/Footer'
-import LandingPage from './pages/LandingPage'
-import Services from './pages/Services'
-import CustomSoftware from './pages/CustomSoftware'
-import MobileApps from './pages/MobileApps'
-import Websites from './pages/Websites'
-import Revolution from './pages/Revolution'
-import AboutUs from './pages/AboutUs'
-import Contact from './pages/Contact'
-import Estimate from './pages/Estimate'
+import Header from './components/header'
+import Footer from './components/footer'
+import Landingpage from '../pages/landingpage'
+import Services from '../pages/services'
+import Customsoftware from '../pages/customsoftware'
+import Mobileapps from '../pages/mobileapps'
+import Websites from '../pages/websites'
+import Revolution from '../pages/revolution'
+import About from '../pages/about'
+import Contact from '../pages/contact'
+import Estimate from '../pages/estimate'
 
 function App() {
   return (
@@ -19,13 +19,13 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/' component={Landingpage} />
           <Route path='/services' component={Services} />
-          <Route path='/customsoftware' component={CustomSoftware} />
-          <Route path='/mobileapps' component={MobileApps} />
+          <Route path='/customsoftware' component={Customsoftware} />
+          <Route path='/mobileapps' component={Mobileapps} />
           <Route path='/websites' component={Websites} />
           <Route path='/revolution' component={Revolution} />
-          <Route path='/about' component={AboutUs} />
+          <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route path='/estimate' component={Estimate} />
         </Switch>

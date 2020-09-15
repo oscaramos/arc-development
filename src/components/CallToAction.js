@@ -1,16 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from './Link'
 
 import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
 import LearnMoreButton from './LearnMoreButton'
-
-import background from '../assets/background.jpg';
-import mobileBackground from '../assets/mobileBackground.jpg'
 import GoldenButton from './GoldenButton'
-
 
 const useStyles = makeStyles(theme => ({
   learnButton: {
@@ -20,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     padding: 5,
   },
   background: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(/assets/background.jpg)`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -30,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     zIndex: '-1',
     [theme.breakpoints.down("md")]: {
-      backgroundImage: `url(${mobileBackground})`,
+      backgroundImage: `url(/assets/mobileBackground.jpg)`,
       backgroundAttachment: 'inherit',
     }
   }
@@ -66,13 +62,13 @@ const CallToAction = () => {
             <LearnMoreButton
               color={theme.palette.common.arcBlue}
               className={classes.learnButton}
-              component={Link} to='/services'
+              component={Link} href='/services'
             />
           </Grid>
         </Grid>
       </Grid>
       <Grid item style={{ marginRight: matchesSM? 0: '5em' }}>
-        <GoldenButton component={Link} to='/estimate' style={{ fontSize: '1.5rem' }}>
+        <GoldenButton component={Link} href='/estimate' style={{ fontSize: '1.5rem' }}>
           Free Estimate
         </GoldenButton>
       </Grid>

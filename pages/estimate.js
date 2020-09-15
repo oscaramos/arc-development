@@ -8,15 +8,9 @@ import useTheme from '@material-ui/core/styles/useTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { makeStyles } from '@material-ui/core/styles'
 
-import GoldenButton from '../components/GoldenButton'
+import GoldenButton from '../src/components/GoldenButton'
 
-import software from '../assets/software.svg'
-import mobile from '../assets/mobile.svg'
-import website from '../assets/website.svg'
-import backArrow from '../assets/backArrow.svg'
-import forwardArrow from '../assets/forwardArrow.svg'
-
-import estimateAnimation from '../animations/estimateAnimation/data.json'
+import estimateAnimation from '../public/animations/estimateAnimation/data.json'
 
 
 const useStyles = makeStyles(() => ({
@@ -41,19 +35,19 @@ function Estimate() {
         {
           id: 1,
           title: 'Custom Software Development',
-          image: software,
+          image: '/assets/software.svg',
           imageAlt: 'three floating screens outline',
         },
         {
           id: 2,
           title: 'iOS App Development',
-          image: mobile,
+          image: '/assets/mobile.svg',
           imageAlt: 'two phones and a tablet outline',
         },
         {
           id: 3,
           title: 'Website development',
-          image: website,
+          image: '/assets/website.svg',
           imageAlt: 'computer screen outline',
         },
       ],
@@ -129,12 +123,12 @@ function Estimate() {
         <Grid container direction='row' justify='space-around'>
           <Grid item>
             <IconButton>
-              <img src={backArrow} alt='back arrow' />
+              <img src='/assets/backArrow.svg' alt='back arrow' />
             </IconButton>
           </Grid>
           <Grid item>
             <IconButton>
-              <img src={forwardArrow} alt='forward arrow' />
+              <img src='/assets/forwardArrow.svg' alt='forward arrow' />
             </IconButton>
           </Grid>
         </Grid>

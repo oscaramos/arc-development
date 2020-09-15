@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from './Link'
+import { useRouter } from 'next/router'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -18,9 +19,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import GoldenButton from '../components/GoldenButton'
-
-import logo from '../assets/logo.svg'
+import GoldenButton from './GoldenButton'
 
 
 function ElevationScroll(props) {
@@ -122,7 +121,7 @@ const useStyles = makeStyles(theme => ({
 
 function Header() {
   const classes = useStyles()
-  const location = useLocation()
+  const router = useRouter()
 
   const [value, setValue] = useState(0)
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -161,20 +160,20 @@ function Header() {
   ]
 
   useEffect(() => {
-    if (location.pathname === '/') setValue(0)
-    if (location.pathname === '/services') setValue(1)
-    if (location.pathname === '/customsoftware') setValue(1)
-    if (location.pathname === '/mobileapps') setValue(1)
-    if (location.pathname === '/websites') setValue(1)
-    if (location.pathname === '/revolution') setValue(2)
-    if (location.pathname === '/about') setValue(3)
-    if (location.pathname === '/contact') setValue(4)
-    if (location.pathname === '/estimate') setValue(5)
+    if (router.pathname === '/') setValue(0)
+    if (router.pathname === '/services') setValue(1)
+    if (router.pathname === '/customsoftware') setValue(1)
+    if (router.pathname === '/mobileapps') setValue(1)
+    if (router.pathname === '/websites') setValue(1)
+    if (router.pathname === '/revolution') setValue(2)
+    if (router.pathname === '/about') setValue(3)
+    if (router.pathname === '/contact') setValue(4)
+    if (router.pathname === '/estimate') setValue(5)
 
     menuOptions.forEach(menuOption => {
-      if (location.pathname === menuOption.link) setSelectedIndex(menuOption.activeIndex)
+      if (router.pathname === menuOption.link) setSelectedIndex(menuOption.activeIndex)
     })
-  }, [location.pathname, menuOptions])
+  }, [router.pathname, menuOptions])
 
   const tabs = (
     <>
@@ -184,20 +183,20 @@ function Header() {
         className={classes.tabContainer}
         indicatorColor='primary'
       >
-        <Tab className={classes.tab} component={Link} to='/' label='Home' />
+        <Tab className={classes.tab} component={Link} href='/' label='Home' />
         <Tab
           aria-owns={anchorEl ? 'simple-menu' : undefined}
           aria-haspopup={anchorEl ? 'true' : undefined}
           onMouseOver={handleClick}
-          className={classes.tab} component={Link} to='/services' label='Services'
+          className={classes.tab} component={Link} href='/services' label='Services'
         />
-        <Tab className={classes.tab} component={Link} to='/revolution' label='The Revolution' />
-        <Tab className={classes.tab} component={Link} to='/about' label='About Us' />
-        <Tab className={classes.tab} component={Link} to='/contact' label='Contact Us' />
+        <Tab className={classes.tab} component={Link} href='/revolution' label='The Revolution' />
+        <Tab className={classes.tab} component={Link} href='/about' label='About Us' />
+        <Tab className={classes.tab} component={Link} href='/contact' label='Contact Us' />
 
-        <Tab className={classes.tab} component={Link} to='/estimate' label='Contact Us' style={{ display: 'none' }} />
+        <Tab className={classes.tab} component={Link} href='/estimate' label='Contact Us' style={{ display: 'none' }} />
       </Tabs>
-      <GoldenButton component={Link} to='/estimate' className={classes.freeEstimateButton}>
+      <GoldenButton component={Link} href='/estimate' className={classes.freeEstimateButton}>
         Free Estimate
       </GoldenButton>
     </>
@@ -220,9 +219,9 @@ function Header() {
 
   useEffect(() => {
     drawerItems.forEach(drawerItem => {
-      if (location.pathname === drawerItem.link) setDrawerIndex(drawerItem.activeIndex)
+      if (router.pathname === drawerItem.link) setDrawerIndex(drawerItem.activeIndex)
     })
-  }, [location.pathname, drawerItems])
+  }, [router.pathname, drawerItems])
 
   const drawer = (
     <>
@@ -240,7 +239,7 @@ function Header() {
                 key={index}
                 className={drawerItem.className}
                 divider button onClick={() => setOpenDrawer(false)}
-                component={Link} to={drawerItem.link}
+                component={Link} href={drawerItem.link}
                 selected={drawerIndex === index}
                 classes={{ selected: classes.drawerItemSelected }}
               >
@@ -268,11 +267,11 @@ function Header() {
           <Toolbar disableGutters>
             <Button
               component={Link}
-              to="/"
+              href="/"
               className={classes.logoContainer}
               disableRipple
             >
-              <img alt='company logo' src={logo} className={classes.logo} />
+              <img alt='company logo' src='/assets/logo.svg' className={classes.logo} />
             </Button>
 
             {
@@ -295,7 +294,7 @@ function Header() {
                     className={classes.menuItem}
                     onClick={e => handleMenuItemClick(e, index)}
                     component={Link}
-                    to={menuOption.link}
+                    href={menuOption.link}
                     selected={index === selectedIndex}
                   >
                     {menuOption.name}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../src/components/Link'
 
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -7,16 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { Typography, useMediaQuery } from '@material-ui/core'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 
-import CallToAction from '../components/CallToAction'
-
-import backArrow from '../assets/backArrow.svg'
-import forwardArrow from '../assets/forwardArrow.svg'
-import analytics from '../assets/analytics.svg'
-import ecommerce from '../assets/ecommerce.svg';
-import outreach from '../assets/outreach.svg';
-import seo from '../assets/seo.svg';
-
-
+import CallToAction from '../src/components/CallToAction'
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -57,8 +48,8 @@ function Websites() {
         >
           <Grid item className={classes.arrowContainer} style={{ marginRight: '1rem', marginLeft: '-3.5rem' }}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/mobileapps'>
-                <img src={backArrow} alt='Back to Mobile Apps Page' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/mobileapps'>
+                <img src='/assets/backArrow.svg' alt='Back to Mobile Apps Page' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -84,8 +75,8 @@ function Websites() {
           </Grid>
           <Grid item className={classes.arrowContainer}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/services'>
-                <img src={forwardArrow} alt='Forward to Services Page' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/services'>
+                <img src='/assets/forwardArrow.svg' alt='Forward to Services Page' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -106,7 +97,7 @@ function Websites() {
                 </Typography>
               </Grid>
               <Grid item>
-                <img src={analytics} alt='analytics' style={{ marginLeft: '-2.75em' }} />
+                <img src='/assets/analytics.svg' alt='analytics' style={{ marginLeft: '-2.75em' }} />
               </Grid>
             </Grid>
           </Grid>
@@ -136,7 +127,7 @@ function Websites() {
                 </Typography>
               </Grid>
               <Grid item>
-                <img src={ecommerce} alt='world outline made of dollar signs' />
+                <img src='/assets/ecommerce.svg' alt='world outline made of dollar signs' />
               </Grid>
             </Grid>
           </Grid>
@@ -167,7 +158,7 @@ function Websites() {
                 </Typography>
               </Grid>
               <Grid item>
-                <img src={outreach} alt='megaphone' />
+                <img src='/assets/outreach.svg' alt='megaphone' />
               </Grid>
             </Grid>
           </Grid>
@@ -195,7 +186,7 @@ function Websites() {
                 </Typography>
               </Grid>
               <Grid item>
-                <img src={seo} alt="website stading on winner's podium" />
+                <img src='/assets/seo.svg' alt="website stading on winner's podium" />
               </Grid>
             </Grid>
           </Grid>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
-import { Link } from 'react-router-dom'
+import Link from '../src/components/Link'
 
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
@@ -8,15 +8,9 @@ import IconButton from '@material-ui/core/IconButton'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
-import CallToAction from '../components/CallToAction'
+import CallToAction from '../src/components/CallToAction'
 
-import backArrow from '../assets/backArrow.svg'
-import forwardArrow from '../assets/forwardArrow.svg'
-import swiss from '../assets/swissKnife.svg'
-import access from '../assets/extendAccess.svg'
-import engagement from '../assets/increaseEngagement.svg'
-
-import integrationAnimation from '../animations/integrationAnimation/data.json'
+import integrationAnimation from '../public/animations/integrationAnimation/data.json'
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -36,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function MobileApps() {
+function Mobileapps() {
   const classes = useStyles()
 
   const mobileOptions = {
@@ -63,8 +57,8 @@ function MobileApps() {
         >
           <Grid item className={classes.arrowContainer} style={{ marginRight: '1rem', marginLeft: '-3.5rem' }}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/customsoftware'>
-                <img src={backArrow} alt='Back to Custom Software Page' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/customsoftware'>
+                <img src='/assets/backArrow.svg' alt='Back to Custom Software Page' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -96,8 +90,8 @@ function MobileApps() {
           </Grid>
           <Grid item className={classes.arrowContainer}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/websites'>
-                <img src={forwardArrow} alt='Forward to Websites Development' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/websites'>
+                <img src='/assets/forwardArrow.svg' alt='Forward to Websites Development' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -169,7 +163,7 @@ function MobileApps() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={swiss} alt='swiss knife' style={{ maxWidth: '28em' }} />
+              <img src='/assets/swissKnife.svg' alt='swiss knife' style={{ maxWidth: '28em' }} />
             </Grid>
           </Grid>
 
@@ -181,7 +175,7 @@ function MobileApps() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={access} alt='extend access' style={{ maxWidth: matchesSM ? '20em' : '28em' }} />
+              <img src='/assets/extendAccess.svg' alt='extend access' style={{ maxWidth: matchesSM ? '20em' : '28em' }} />
             </Grid>
           </Grid>
 
@@ -193,7 +187,7 @@ function MobileApps() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={engagement} alt='increase engagement' style={{ maxWidth: '28em' }} />
+              <img src='/assets/increaseEngagement.svg' alt='increase engagement' style={{ maxWidth: '28em' }} />
             </Grid>
           </Grid>
         </Grid>
@@ -205,4 +199,4 @@ function MobileApps() {
   )
 }
 
-export default MobileApps
+export default Mobileapps

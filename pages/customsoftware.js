@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../src/components/Link'
 import Lottie from 'react-lottie'
 
 import Grid from '@material-ui/core/Grid'
@@ -8,19 +8,12 @@ import Hidden from '@material-ui/core/Hidden'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Typography, useMediaQuery } from '@material-ui/core'
 
-import backArrow from '../assets/backArrow.svg'
-import forwardArrow from '../assets/forwardArrow.svg'
-import cash from '../assets/cash.svg'
-import stopwatch from '../assets/stopwatch.svg'
-import lightbulb from '../assets/bulb.svg'
-import roots from '../assets/root.svg'
+import documentsAnimation from '../public/animations/documentsAnimation/data'
+import scaleAnimation from '../public/animations/scaleAnimation/data.json'
+import automationAnimation from '../public/animations/automationAnimation/data.json'
+import uxAnimation from '../public/animations/uxAnimation/data'
 
-import documentsAnimation from '../animations/documentsAnimation/data'
-import scaleAnimation from '../animations/scaleAnimation/data.json'
-import automationAnimation from '../animations/automationAnimation/data.json'
-import uxAnimation from '../animations/uxAnimation/data'
-
-import CallToAction from '../components/CallToAction'
+import CallToAction from '../src/components/CallToAction'
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-function CustomSoftware() {
+function Customsoftware() {
   const classes = useStyles()
 
   const documentsOptions = {
@@ -99,8 +92,8 @@ function CustomSoftware() {
         >
           <Grid item className={classes.arrowContainer} style={{ marginRight: '1rem', marginLeft: '-3.5rem' }}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/services'>
-                <img src={backArrow} alt='Back to Services Page' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/services'>
+                <img src='/assets/backArrow.svg' alt='Back to Services Page' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -142,8 +135,8 @@ function CustomSoftware() {
           </Grid>
           <Grid item className={classes.arrowContainer}>
             <Hidden mdDown>
-              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} to='/mobileapps'>
-                <img src={forwardArrow} alt='Forward to iOS/Android App Development' />
+              <IconButton style={{ backgroundColor: 'transparent' }} component={Link} href='/mobileapps'>
+                <img src='/assets/forwardArrow.svg' alt='Forward to iOS/Android App Development' />
               </IconButton>
             </Hidden>
           </Grid>
@@ -165,7 +158,7 @@ function CustomSoftware() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={lightbulb} alt='lightbulb' />
+              <img src='/assets/bulb.svg' alt='lightbulb' />
             </Grid>
           </Grid>
           <Grid item container md direction='column' alignItems='center'
@@ -176,7 +169,7 @@ function CustomSoftware() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={stopwatch} alt='stopwatch' />
+              <img src='/assets/stopwatch.svg' alt='stopwatch' />
             </Grid>
           </Grid>
           <Grid item container md direction='column' alignItems='center'
@@ -187,7 +180,7 @@ function CustomSoftware() {
               </Typography>
             </Grid>
             <Grid item>
-              <img src={cash} alt='cash' />
+              <img src='/assets/cash.svg' alt='cash' />
             </Grid>
           </Grid>
         </Grid>
@@ -272,7 +265,7 @@ function CustomSoftware() {
         >
           <Grid item>
             <img
-              src={roots}
+              src='/assets/root.svg'
               alt='three with roots extending out'
               height={matchesSM ? '200em' : '450em'}
               width={matchesSM ? '200em' : '450em'}
@@ -375,4 +368,4 @@ function CustomSoftware() {
   )
 }
 
-export default CustomSoftware
+export default Customsoftware

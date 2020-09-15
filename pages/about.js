@@ -6,9 +6,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 
-import CallToAction from '../components/CallToAction'
-
-import history from '../assets/history.svg'
+import CallToAction from '../src/components/CallToAction'
 
 
 const useStyles = makeStyles(theme => ({
@@ -29,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function AboutUs() {
+function About() {
   const classes = useStyles()
 
   const theme = useTheme()
@@ -96,7 +94,7 @@ function AboutUs() {
         <Grid item>
           <Grid container justify='center' alignItems='center' style={{ height: '100%' }}>
             <Grid item>
-              <img src={history} alt='book with quill pen' style={{ width: '100%', maxWidth: matchesLG? '20em': '40em' }}/>
+              <img src='/assets/history.svg' alt='book with quill pen' style={{ width: '100%', maxWidth: matchesLG? '20em': '40em' }}/>
             </Grid>
           </Grid>
         </Grid>
@@ -110,4 +108,4 @@ function AboutUs() {
   )
 }
 
-export default AboutUs
+export default About
