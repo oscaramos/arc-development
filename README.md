@@ -10,6 +10,9 @@ This idea came out from [Implement High Fidelity Designs with Material-UI and Re
 * [Next.js](https://nextjs.org/) - front-end framework ans SSR
 * [React](https://es.reactjs.org/) + [Material-UI](https://material-ui.com/) - for user interfaces
 * [Firebase cloud functions](https://firebase.google.com/products/functions?hl=es-419&gclid=CjwKCAjwzIH7BRAbEiwAoDxxTrNjFfXc2f8KKj3OPUxIH95XtiKTUSVZNHrLuy6y1SxzVY5yDf4XzxoCYBoQAvD_BwE) + [nodemailer](https://nodemailer.com/about/) - for sending emails
+* [Axios](https://github.com/axios/axios) - for requests to firebase cloud functions
+* [React Lottie](https://github.com/chenqingspring/react-lottie) - for used animations from adobe after effects
+* [Imagemin](https://github.com/imagemin/imagemin) - for optimized assets(jpeg, png, svg)
 
 # Deployment
 
