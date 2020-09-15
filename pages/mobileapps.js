@@ -52,6 +52,12 @@ function Mobileapps() {
     <>
       <Head>
         <title key='title'>iOS/Android App Design and Development | Arc Development</title>
+        <meta
+          name='description'
+          key='description'
+          content='Mobile Apps Made Easy | Out cutting-edge mobile app development process lets us build
+            beautifully designed, carefully crafted apps for both iOS and Android'
+        />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*----- iOS/Android App Development -----*/}

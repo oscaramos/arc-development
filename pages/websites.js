@@ -42,6 +42,12 @@ function Websites() {
     <>
       <Head>
         <title key='title'>Stunning Custom Website Design | Arc Development</title>
+        <meta
+          name='description'
+          key='description'
+          content='Completely custom designed and built from scratch to be blazing fast. Optimized code,
+          server-side rendering, and perfect responsive design | 99% Page Speed Score'
+        />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*------ Website Development ------*/}

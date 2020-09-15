@@ -50,6 +50,12 @@ function Services() {
     <Grid container direction='column'>
       <Head>
         <title key='title'>Top Custom Software Development Services | Arc Development</title>
+        <meta
+          name='description'
+          key='description'
+          content='Cutting-edge software, mobile app, and website development services with sleek
+          custom designs - get a free online estimate instantly'
+        />
       </Head>
       <Grid
         item

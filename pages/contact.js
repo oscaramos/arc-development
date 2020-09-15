@@ -44,9 +44,6 @@ function ContactUsFormulary(props) {
 
   return (
     <Grid item container direction='column'>
-      <Head>
-        <title key='title'>Contact Us | Arc Development</title>
-      </Head>
       <Grid item>
         <TextField
           label='Name'
@@ -228,6 +225,15 @@ function Contact() {
       container
       direction={matchesMD ? 'column' : 'row'}
     >
+      <Head>
+        <title key='title'>Contact Us | Arc Development</title>
+        <meta
+          name='description'
+          key='description'
+          content='Let us guide you through the custom software design and development process. Send us a
+          message with any of your ideas or questions to get started!'
+        />
+      </Head>
       <Grid item container lg={4} xl={3} direction='row' justify='center' alignItems='center'>
         <Grid
           item
