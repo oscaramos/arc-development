@@ -79,6 +79,16 @@ function Estimate() {
           content='Use our free online estimate calculator to instantly check the cost of your custom
            software, mobile app, or website design and development project!'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Free Estimate'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/estimate'
+        />
       </Head>
       {/*----- Estimate ------*/}
       <Grid item container lg direction='column' alignItems='center'>

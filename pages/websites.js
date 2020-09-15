@@ -48,6 +48,16 @@ function Websites() {
           content='Completely custom designed and built from scratch to be blazing fast. Optimized code,
           server-side rendering, and perfect responsive design | 99% Page Speed Score'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Websites'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/websites'
+        />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*------ Website Development ------*/}

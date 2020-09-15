@@ -53,6 +53,16 @@ function Revolution() {
           content='Visionary insights, coupled with cutting-edge technology, is a recipe
           for revolution. Get a free online estimate instantly!'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Revolution'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/revolution'
+        />
       </Head>
       <Grid container direction='column' className={classes.rowContainer}>
         <Grid item>

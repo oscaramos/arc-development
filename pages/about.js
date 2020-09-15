@@ -45,6 +45,16 @@ function About() {
           content='We provide the fastest, most modern, affordable, and aesthetic software design
           and development services in the Midwest. Get a free online estimate now!'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | About us'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/about'
+        />
       </Head>
       {/*----- About Us ------*/}
       <Grid item className={classes.rowContainer} style={{ marginTop: '2em' }}>

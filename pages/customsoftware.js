@@ -93,6 +93,16 @@ function Customsoftware() {
             content='Cutting-edge custom software development with gorgeous designs from scratch - let us
             optimize your business, solving problems instead of creating new ones.'
           />
+          <meta
+            key='og:title'
+            property='og:title'
+            content='Bringing West Coast Technology to the Midwest | Custom Software Development'
+          />
+          <meta
+            key='og:url'
+            property='og:url'
+            content='myUrl.com/customsoftware'
+          />
         </Head>
         {/*----- Custom Software Development -----*/}
         <Grid

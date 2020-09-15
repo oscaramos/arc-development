@@ -56,6 +56,16 @@ function Services() {
           content='Cutting-edge software, mobile app, and website development services with sleek
           custom designs - get a free online estimate instantly'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Services'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/services'
+        />
       </Head>
       <Grid
         item

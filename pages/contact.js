@@ -233,6 +233,16 @@ function Contact() {
           content='Let us guide you through the custom software design and development process. Send us a
           message with any of your ideas or questions to get started!'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Contact Us'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/contact'
+        />
       </Head>
       <Grid item container lg={4} xl={3} direction='row' justify='center' alignItems='center'>
         <Grid

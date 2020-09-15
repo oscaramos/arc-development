@@ -58,6 +58,16 @@ function Mobileapps() {
           content='Mobile Apps Made Easy | Out cutting-edge mobile app development process lets us build
             beautifully designed, carefully crafted apps for both iOS and Android'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | iOS/Android App Development'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/mobileapps'
+        />
       </Head>
       <Grid container direction='column' className={classes.mainContainer}>
         {/*----- iOS/Android App Development -----*/}

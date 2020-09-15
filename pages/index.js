@@ -141,6 +141,16 @@ const Landingpage = () => {
           content='Pristine software-custom-designed from the ground up with cutting-edge optimizations.
           Use our free estimate calculator to check your project cost'
         />
+        <meta
+          key='og:title'
+          property='og:title'
+          content='Bringing West Coast Technology to the Midwest | Arc Development'
+        />
+        <meta
+          key='og:url'
+          property='og:url'
+          content='myUrl.com/'
+        />
       </Head>
       {/*---- Hero Block -----*/}
       <Grid item>
