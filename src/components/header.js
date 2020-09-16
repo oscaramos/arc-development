@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from './Link'
 import { useRouter } from 'next/router'
+import ReactGA from 'react-ga'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -152,6 +153,10 @@ function Header() {
     setSelectedIndex(i)
   }
 
+  useEffect(() => {
+    ReactGA.pageview(router.pathname + window.location.search)
+  }, [router.pathname])
+
   const menuOptions = [
     { link: '/services', name: 'Services', activeIndex: 0 },
     { link: '/customsoftware', name: 'Custom Software Development', activeIndex: 1 },
@@ -238,8 +243,11 @@ function Header() {
               <ListItem
                 key={index}
                 className={drawerItem.className}
-                divider button onClick={() => setOpenDrawer(false)}
-                component={Link} href={drawerItem.link}
+                divider
+                button
+                onClick={() => { setOpenDrawer(false); ReactGA.event({ category: 'User', action: `Pressed drawer button ${drawerItem.name}`}) }}
+                component={Link}
+                href={drawerItem.link}
                 selected={drawerIndex === index}
                 classes={{ selected: classes.drawerItemSelected }}
               >

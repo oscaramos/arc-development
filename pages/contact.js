@@ -3,6 +3,7 @@ import useAxios from 'axios-hooks'
 import isEmail from 'validator/lib/isEmail'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 import Head from 'next/head'
+import ReactGA from 'react-ga'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -177,7 +178,15 @@ function Contact() {
     }
   }
 
-  const [{ data, loading, error }, handleConfirm] = useAxios(
+  const handleConfirm = () => {
+    handleConfirmRequest()
+    ReactGA.event({
+      category: 'User',
+      action: 'Sent message to owner'
+    })
+  }
+
+  const [{ data, loading, error }, handleConfirmRequest] = useAxios(
     {
       method: 'get',
       url: 'https://us-central1-arc-development-7dd3f.cloudfunctions.net/sendMail',

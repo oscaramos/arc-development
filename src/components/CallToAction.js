@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from './Link'
+import ReactGA from 'react-ga'
 
 import Grid from '@material-ui/core/Grid'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
@@ -68,7 +69,7 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item style={{ marginRight: matchesSM? 0: '5em' }}>
-        <GoldenButton component={Link} href='/estimate' style={{ fontSize: '1.5rem' }}>
+        <GoldenButton component={Link} href='/estimate' onClick={() => ReactGA.event({ category: 'User', action: 'Pressed Free Estimate Button on Call To Action window' })} style={{ fontSize: '1.5rem' }}>
           Free Estimate
         </GoldenButton>
       </Grid>

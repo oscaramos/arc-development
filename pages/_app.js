@@ -1,4 +1,6 @@
 import React from 'react'
+import ReactGA from 'react-ga'
+
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 
@@ -8,7 +10,7 @@ import theme from '../src/theme'
 import Header from '../src/components/header'
 import Footer from '../src/components/footer'
 
-
+ReactGA.initialize('UA-160924990-1')
 
 export default function MyApp(props) {
   const { Component, pageProps } = props
